@@ -1,0 +1,970 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="description" content="Groovinads panel">
+		<meta name="theme-color" content="#1797be">
+		<title>Groovinads Panel</title>
+		<script src="/socket.io/socket.io.js"></script>
+
+		<link rel="stylesheet" href="https://panel.groovinads.com/global/vendor/normalize-css/normalize.css?27">
+		<link rel="stylesheet" href="https://panel.groovinads.com/global/vendor/jquery-ui-1.12.1/jquery-ui.min.css?27">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css">
+		<link rel="stylesheet" href="https://panel.groovinads.com/global/vendor/fontawesome-pro/css/all.min.css?27">
+		<link rel="stylesheet" href="https://panel.groovinads.com/global/vendor/simple-line-icons/css/simple-line-icons.css?27">
+		<link rel="stylesheet" href="https://panel.groovinads.com/global/vendor/animate.css/animate.min.css?27">
+		<link rel="stylesheet" href="https://panel.groovinads.com/global/vendor/whirl/dist/whirl.css?27">
+		<link rel="stylesheet" href="https://panel.groovinads.com/global/vendor/select2/dist/css/select2.min.css?27" id="select2.min.css" />
+		<link rel="stylesheet" href="https://panel.groovinads.com/global/vendor/select2-bootstrap-theme/dist/select2-bootstrap.min.css?27" id="select2-bootstrap.min.css" />
+		<link rel="stylesheet" href="https://panel.groovinads.com/global/vendor/pnotify/dist/pnotify.custom.min.css?27" id="pnotify.custom.min.css" />
+		<link rel="stylesheet" href="https://panel.groovinads.com/global/vendor/magnific-popup/1.1.0/magnific-popup.min.css?27" id="magnific-popup.min.css" />
+		<link rel="stylesheet" href="https://panel.groovinads.com/global/vendor/bootstrap-tour/build/css/bootstrap-tour.css?27">
+		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/jszip-2.5.0/dt-1.10.16/af-2.2.2/b-1.5.1/b-colvis-1.5.1/b-flash-1.5.1/b-html5-1.5.1/b-print-1.5.1/cr-1.4.1/fc-3.2.4/fh-3.1.3/kt-2.3.2/r-2.2.1/rg-1.0.2/rr-1.2.3/sc-1.4.4/sl-1.2.5/datatables.min.css" />
+		<link rel="stylesheet" href="https://panel.groovinads.com/global/vendor/bootstrap-table/dist/bootstrap-table.min.css?27" />
+		<link rel="stylesheet" href="https://panel.groovinads.com/global/vendor/x-editable/dist/bootstrap3-editable/css/bootstrap-editable.css?27" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css" />
+		<link rel="stylesheet" href="https://panel.groovinads.com/global/vendor/spectrum/spectrum.css?27">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/codemirror.css">
+		<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/theme/monokai.css">
+		<link rel="stylesheet" href="https://panel.groovinads.com/global/css/bootstrap.css" id="bootstrap.css?27">
+		<link rel="stylesheet" href="https://panel.groovinads.com/global/vendor/bootstrap-tagsinput/dist/bootstrap-tagsinput.css?27" id="bootstrap-tagsinput.css">
+		<link rel="stylesheet" href="https://panel.groovinads.com/global/vendor/bootstrap-select/dist/css/bootstrap-select.min.css?27" id="bootstrap-select.css">
+		<link rel="stylesheet" href="https://panel.groovinads.com/global/vendor/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css?27" id="bootstrap-datetimepicker.min.css">
+		<link rel="stylesheet" href="https://panel.groovinads.com/global/css/main.css?27">
+		<link rel="stylesheet" href="https://panel.groovinads.com/global/css/app.css?27">
+		<link rel="stylesheet" href="https://panel.groovinads.com/global/css/theme.css?27">
+		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
+			<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+		<!-- LINKS SUMADOS -->
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<style type="text/css">
+			body {font-family: ubuntu,source sans pro,sans-serif;}
+			span.spanBold{color: #00004b; font-weight: 700;}
+			span.spanBoldRed{color: red; font-weight: 700;}
+			.imgTutorial{width: 100%; padding:  5px 0px 10px 0px}
+			img.imgTutorial.smallImg {
+    			display: inline;
+    			max-width: 300px;
+			}
+		</style>
+	</head>
+
+
+	<body>
+		<section id="app_module" style="opacity: 1;">
+			<div class="content-wrapper sync sync-after">
+				<div class="content-heading">
+					<div class="mt-sm mb">
+						<i class="far fa-window-restore mr"></i>
+						Implementaciones 
+					</div>
+				</div>
+				<div class="container-fluid">
+					<div class="">
+						<div class="panel widget panel-shadow">
+							<div class="panel-body help-campaigns-item-main">
+								<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+									<div class="panel panel-default" title="Panel Implementaciones > Fuentes de Datos" id="ImpT01">
+									    <div class="panel-heading" role="tab" id="implementacionesT01">
+									      <h4 class="panel-title">
+									        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#implementacionesCollapseT01" aria-expanded="true" aria-controls="implementacionesCollapseT01">
+									          Panel Implementaciones > Fuentes de Datos
+									        </a>
+									      </h4>
+									    </div>
+									    <div id="implementacionesCollapseT01" class="panel-collapse collapse" role="tabpanel" aria-labelledby="implementacionesT01">
+									      	<div class="panel-body">
+												<ul class="nav nav-tabs">
+												  <li class="active"><a data-toggle="tab" href="#implementacionesT01P01">Intro</a></li>
+												  <li><a data-toggle="tab" href="#implementacionesT01P02">Info disponible</a></li>
+												  <li><a data-toggle="tab" href="#implementacionesT01P03">Menú</a></li>
+												</ul>
+
+												<div class="tab-content">
+												  <div id="implementacionesT01P01" class="tab-pane fade in active">
+												    <h3>Intro</h3>
+												    <p>Este el panel <span class="spanBold">Implementaciones > Fuentes de Datos</span> vamos a poder agregar, modificar y editar los feed de nuestra cuenta. </p>
+												    <p>En el caso de no saber que es un Feed o Fuente de datos te recomendamos ver nuestro tutorial: <span class="spanBold">Todo sobre el DataSource.</span></p>
+												    <p>Desde este panel vamos a poder crear nuevas bases de datos, imprimir en distintos formatos  o imprimir la lista de las fuentes cargadas en la cuenta, ver el preview de cada fuente y acceder al menú de cada DS. </p>
+												    <img class="imgTutorial" src="img/implementacionesT01P01Img01.png">
+												  </div>
+												  <div id="implementacionesT01P02" class="tab-pane fade">
+												    <h3>Info disponible</h3>
+												    <p>En la lista de base de datos vamos a poder visualizar la siguiente información:</p>
+												    <ul>
+												      <li><span class="spanBold">Id:</span> Representa el número identificador de cada fuente. </li>
+												      <li><span class="spanBold">Nombre:</span> Corresponde al nombre que le pusimos al momento de crearla. En el caso de desearlo este dato se puede modificar.</li>
+												      <li><span class="spanBold">Tipo:</span> Nos indica cuál es el origen de la fuente de datos.  </li>
+												      <li><span class="spanBold">Modelo:</span> Vamos a poder ver a que Modelo de Negocio está asociado este feed. </li>
+												      <li><span class="spanBold">Países: </Vamos a poder ver el país en el que los anuncios se publicarán. </li>
+												      <li><span class="spanBold">URL:</span> En el caso de estar alimentando el feed por medio de una URL, desde acá vamos a poder acceder a ella. </li>
+												      <li><span class="spanBold">Frecuencia de actualización:</span> Desde aquí vamos a poder verificar cada cuanto tiempo se está actualizando nuestra fuente. En el caso de desearlo este dato se puede modificar.</li>
+												      <li><span class="spanBold">Última actualización:</span> En este caso vamos a poder ver cuál fue la última fecha de actualización del feed. </li>
+												      <li><span class="spanBold"># Ofertas:</span> En este espacio vamos a poder corroborar cuantas ofertas o productos tenemos cargado en la fuente. </li>
+												      <li><span class="spanBold">Status:</span> Esta opción nos va a permitir prender y apagar la base de datos. Al tenerla apagada, esta se deja de mostrar en los banner y se deja de actualizar. </li>
+												    </ul>
+												  </div>
+												  <div id="implementacionesT01P03" class="tab-pane fade">
+												    <h3>Menú</h3>
+												    <p>Desde menú de cada fuente vamos a poder: </p>
+												    <ul>
+												      <li>Cambiarle el nombre a la DS. <br>
+												       &#128204; Tutorial relacionado: <span class="spanBold"><a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#implementacionesCollapseT13" aria-expanded="false" aria-controls="implementacionesCollapseT13">¿Cómo modificar el nombre de mi base de datos?</a></span></li>
+												      <li>Editar el feed.</li>
+												      <li>Descargar el feed seleccionado.</li>
+												      <li>Duplicar el feed. <br>
+												      	&#128204; Tutorial relacionado: <span class="spanBold"><a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#implementacionesCollapseT14" aria-expanded="false" aria-controls="implementacionesCollapseT14">¿Cómo duplicar mi feed?</a></span></li>
+												      <li>Actualizar la base de datos. <br>
+												      	&#128204; Tutorial relacionado: <span class="spanBold"><a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#implementacionesCollapseT15" aria-expanded="false" aria-controls="implementacionesCollapseT15">¿Cómo actualizar la base de datos?</a></span></li>
+												      <li>Eliminar la fuente seleccionada. <br>
+												      	&#128204; Tutorial relacionado: <span class="spanBold"><a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#implementacionesCollapseT16" aria-expanded="false" aria-controls="implementacionesCollapseT16">¿Cómo eliminar una base de datos?</a></span></li>
+												    </ul>
+												    <img class="imgTutorial" src="img/implementacionesT01P03Img01.png">
+												  </div>
+												</div>
+									      	</div>
+									    </div>
+								  	</div>
+								  	<div class="panel panel-default" title="Todo sobre el DataSource" id="ImpT02">
+									    <div class="panel-heading" role="tab" id="implementacionesT02">
+									      <h4 class="panel-title">
+									        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#implementacionesCollapseT02" aria-expanded="true" aria-controls="implementacionesCollapseT02">
+									          Todo sobre el DataSource
+									        </a>
+									      </h4>
+									    </div>
+									    <div id="implementacionesCollapseT02" class="panel-collapse collapse" role="tabpanel" aria-labelledby="implementacionesT02">
+									      <div class="panel-body">
+												<ul class="nav nav-tabs">
+												  <li class="active"><a data-toggle="tab" href="#implementacionesT02P01">Intro</a></li>
+												  <li><a data-toggle="tab" href="#implementacionesT02P02">Tipos de DataSource</a></li>
+												</ul>
+
+												<div class="tab-content">
+												  <div id="implementacionesT02P01" class="tab-pane fade in active">
+												    <h3>Intro</h3>
+												    <p>La Data Source, Base de Datos o feed es el medio por el que se le proporciona a los banners la  información de las ofertas o productos de la web. </p>
+												    <p>Para todas las fuentes de datos hay 3 campos que son obligatorios para cada oferta, estos son esenciales para que el banner pueda funcionar correctamente:</p>
+												    <ul>
+												    	<li><span class="spanBold">País:</span> se refiere al país en el que los anuncios se publicarán (no necesariamente el país de donde es la oferta). Debe insertarse con la nomenclatura correcta (ver el documento correspondiente Especificación de Fuente de Datos para más detalles). Si se establece correctamente, una bandera del país o los países correspondientes aparecerá al lado de la Fuente de Datos.</li>
+												    	<li><span class="spanBold">Título:</span> El título de la oferta, que va a identificarla.</li>
+												    	<li><span class="spanBold">Enlace de Destino:</span> donde los usuarios llegarán después de hacer clic en la oferta en el banner. Le recomendamos no añadir el rastreo a la url del enlace destino y configurarlo desde los banners. Esto le permitirá utilizar la misma Fuente de Datos en diferentes campañas.</li>
+												    </ul>
+												    <p>&#128064; Tenga en cuenta que cuanto más completo este su fuente de datos, nuestro motor va a tener más información con la que trabajar y, a raíz de esto, se podrá obtener un mayor provecho de la optimización de nuestro servicio.</p>
+												  </div>
+												  <div id="implementacionesT02P02" class="tab-pane fade">
+												    <h3>Tipos de DataSource o Feeds</h3>
+												    <p>Hay 4 tipos diferentes de feeds que se pueden integrar en la interfaz GroovinAds:</p>
+												    <ul>
+												    	<li>
+												    		<span class="spanBold">Desde un archivo XML o CSV:</span> Seleccione esta opción si ya tiene un XML o CSV, y hay que traducirlo para que coincida con las especificaciones GroovinAds. Puede agregar valores fijos para el XML, como país (donde las ofertas correrán) y la moneda. <br>
+												    		&#128064;<span class="spanBold">Atención:</span> Al subir un archivo hay que tener en cuenta que este documento debe actualizarse regularmente. <br>
+												    		&#128204;Tutorial relacionado: <span class="spanBold"><a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#implementacionesCollapseT04" aria-expanded="false" aria-controls="implementacionesCollapseT04">¿Cómo crear un DataSource con un archivo XML o CSV?</a></span>
+												    	</li>
+												    	<li>
+												    		<span class="spanBold">Desde una URL:</span> Podemos seleccionar una URL con un archivo XML o CSV. Este estilo de feed se actualizará automáticamente y al igual que en el punto anterior es necesario configurado para que los datos en el macheen con los solicitados por el panel. <br>
+															&#128204;Tutorial relacionado: <span class="spanBold"><a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#implementacionesCollapseT05" aria-expanded="false" aria-controls="implementacionesCollapseT05">¿Cómo crear un DataSource desde una URL?</a></span>
+												    	</li>
+												    	<li>
+												    		<span class="spanBold">Feed Manual:</span> Seleccione esta opción si va a agregar manualmente cada oferta que será parte de la base de datos de opciones para sus banners, a través de un formulario online. <br>
+															&#128064;<span class="spanBold">Atención:</span> Al subir los productos manualmente, la actualización de los mismos también se realiza manualmente. <br>
+															&#128204;Tutorial relacionado: <span class="spanBold"><a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#implementacionesCollapseT06" aria-expanded="false" aria-controls="implementacionesCollapseT06">¿Cómo crear un Feed Manual?</a></span>
+												    	</li>
+												    	<li>
+												    		<span class="spanBold">Site Crawler:</span> Esta opción está disponible para cuando no se puede crear un XML,o se tiene demasiadas ofertas y / o la frecuencia de actualización no posibilita un XML Manual. Esto creará un XML con la información disponible en la web. <br>
+															&#128204;Tutorial relacionado: <span class="spanBold"><a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#implementacionesCollapseT07" aria-expanded="false" aria-controls="implementacionesCollapseT07">¿Cómo crear un Crawler?</a></span>
+												    	</li>
+												    </ul>
+												    <p>A partir de ellos se puede crear subset según los criterios que se necesite. </p>
+												    <p>&#128204; Tutoriales relacionados: </p>
+												    	<ul>
+												    		<li>
+												    			<span class="spanBold"><a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#implementacionesCollapseT12" aria-expanded="false" aria-controls="implementacionesCollapseT12">¿Qué es  un subset?</a></span>
+												    		</li>
+												    		<li>
+												    			<span class="spanBold"><a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#implementacionesCollapseT08" aria-expanded="false" aria-controls="implementacionesCollapseT08">¿Cómo crear un subset?</a></span>
+												    		</li>
+												    	</ul>
+												    	
+												  </div>
+												</div>
+									      </div>
+									    </div>
+								  	</div>
+								  	<div class="panel panel-default" title="¿Cómo crear una nueva fuente de datos?" id="ImpT03">
+									    <div class="panel-heading" role="tab" id="implementacionesT03">
+									      <h4 class="panel-title">
+									        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#implementacionesCollapseT03" aria-expanded="true" aria-controls="implementacionesCollapseT03">
+									          ¿Cómo crear una nueva fuente de datos?
+									        </a>
+									      </h4>
+									    </div>
+									    <div id="implementacionesCollapseT03" class="panel-collapse collapse" role="tabpanel" aria-labelledby="implementacionesT03">
+									      <div class="panel-body">
+											<ul class="nav nav-tabs">
+											  <li class="active"><a data-toggle="tab" href="#implementacionesT03P01">Intro</a></li>
+											  <li><a data-toggle="tab" href="#implementacionesT03P02">Opción 1</a></li>
+											  <li><a data-toggle="tab" href="#implementacionesT03P03">Opción 2</a></li>
+											  <li><a data-toggle="tab" href="#implementacionesT03P04">Opción 3</a></li>
+											  <li><a data-toggle="tab" href="#implementacionesT03P05">Opción 4</a></li>
+											  <li><a data-toggle="tab" href="#implementacionesT03P06">Opción 5</a></li>
+											</ul>
+
+											<div class="tab-content">
+											  <div id="implementacionesT03P01" class="tab-pane fade in active">
+											    <h3>Intro</h3>
+											    <p>Dentro de este menú al que accedemos dentro del menú Implementaciones - Fuente de datos, presionamos el botón Nueva Fuente de Datos y completamos un nombre para la nueva Fuente de Datos, también denominada comúnmente Feed. Luego seleccionamos el modelo de negocio de la campaña que estamos emprendiendo (Retail o venta por menor, Hoteles, Automotores, etc.) </p>
+											    <p>Hay varias opciones para usar de origen de una fuente de datos: </p>
+											    <ul>
+											      <li>Opción 1: Cargar un archivo XML o CSV </li>
+											      <li>Opción 2: Cargar desde una URL </li>
+											      <li>Opción 3: Alimentación manual </li>
+											      <li>Opción 4: Rastreador del sitio (crawling) </li>
+											      <li>Opción 5: Subset Data Source </li>
+											    </ul>
+											  </div>
+											  <div id="implementacionesT03P02" class="tab-pane fade">
+											    <h3>Opción 1: Cargar un archivo XML o CSV </h3>
+											    <p>Seleccionamos el archivo para levantar en la plataforma. Luego se abrirá una pantalla para hacer un match o unir los campos que trae el feed de origen con los campos habilitados en Groovinads. Algunos de ellos ya aparecerán con el match sugerido y otros habrá que seleccionarlos manualmente. </p>
+											    <p>&#128204;Tutorial relacionado: <span class="spanBold"><a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#implementacionesCollapseT04" aria-expanded="false" aria-controls="implementacionesCollapseT04">¿Cómo crear un DataSource con un archivo XML o CSV?</a></span></p>
+											  </div>
+											  <div id="implementacionesT03P03" class="tab-pane fade">
+											    <h3>Opción 2: Cargar desde una URL </h3>
+											    <p>Debemos completar el cuadro con la URL de acceso al feed comppartido. Luego se abrirá una pantalla para hacer un match o unir los campos que trae el feed de origen con los campos habilitados en Groovinads. Algunos de ellos ya aparecerán con el match sugerido y otros habrá que seleccionarlos manualmente. </p>
+											    <p>&#128204;Tutorial relacionado: <span class="spanBold"><a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#implementacionesCollapseT05" aria-expanded="false" aria-controls="implementacionesCollapseT05">¿Cómo crear un DataSource desde una URL?</a></span></p>
+											  </div>
+											  <div id="implementacionesT03P04" class="tab-pane fade">
+											    <h3>Opción 3: Alimentación manual</h3>
+											    <p>Completar los campos desde la pantalla que se abre a tal efecto. Los campos que no se usan o no son obligatorios pueden quedar en blanco (sin completar). </p>
+											    <p>&#128204;Tutorial relacionado: <span class="spanBold"><a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#implementacionesCollapseT06" aria-expanded="false" aria-controls="implementacionesCollapseT06">¿Cómo crear un Feed Manual?</a></span></p>
+											  </div>
+											  <div id="implementacionesT03P05" class="tab-pane fade">
+											    <h3>Opción 4: Rastreador del sitio (crawling)</h3>
+											    <p>Tutorial relacionado: <span class="spanBold"><a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#implementacionesCollapseT03" aria-expanded="false" aria-controls="implementacionesCollapseT03"></a></span></p>
+											    <p> Esta opción es realizada por personal técnico de Groovinads. Una vez que está instalado el pixel de retargeting en el sitio web del anunciante puede armarse un feed automático, pero el proceso debe solicitarse al contacto habitual de Groovinads. </p>
+											    <p>&#128204;Tutorial relacionado: <span class="spanBold"><a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#implementacionesCollapseT07" aria-expanded="false" aria-controls="implementacionesCollapseT07">¿Cómo crear feed con el Crawler?</a></span></p>
+											  </div>
+											  <div id="implementacionesT03P06" class="tab-pane fade">
+											    <h3>Opción 5: Subset Data Source</h3>
+											    <p>Un subset es un subconjunto de una fuente de datos ya existente. Debemos seleccionar el origen y luego el criterio para combinar las condiciones AND u OR. La condición AND significa que deben cumplirse todas los criterios del filtro, en cambio la condición OR muestra registros cuando se cumple al menos uno de los filtros configurados. Para configurar los filtros primero debe seleccionarse un campo (category_name, title o cualquier otro campo), luego el operador (is ANY of, is NONE of, MATCHES, GREATER than, etc.), y por último el valor. Se pueden agregar todas condiciones necesarias. </p>
+											    <p>&#128064; <span class="spanBold">Atención:</span> No es posible combinar condiciones AND y OR en un mismo subset.</p>
+											    <p>&#128064; <span class="spanBold">Importante:</span> Un mismo campo de Groovinads no puede quedar haciendo match con dos campos del feed de origen, la relación tiene que ser de uno a uno. Debe seleccionarse como campo product_sku aquel que contenga un id o código que permita identificar en forma unívoca a cada registro del feed. Los campos obligatorios son country, product_sku, target_link y title. </p>
+											    <p>&#128204;Tutorial relacionado: <span class="spanBold"><a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#implementacionesCollapseT08" aria-expanded="false" aria-controls="implementacionesCollapseT08">¿Cómo crear un subset?</a></span></p>
+											  </div>
+											</div>
+									      </div>
+									    </div>
+								  	</div>
+								  	<div class="panel panel-default" title="¿Cómo crear un DataSource con un archivo XML o CSV?" id="ImpT04">
+									    <div class="panel-heading" role="tab" id="implementacionesT04">
+									      <h4 class="panel-title">
+									        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#implementacionesCollapseT04" aria-expanded="true" aria-controls="implementacionesCollapseT04">
+									          ¿Cómo crear un DataSource con un archivo XML o CSV?
+									        </a>
+									      </h4>
+									    </div>
+									    <div id="implementacionesCollapseT04" class="panel-collapse collapse" role="tabpanel" aria-labelledby="implementacionesT04">
+									      <div class="panel-body">
+												<ul class="nav nav-tabs">
+												  <li class="active"><a data-toggle="tab" href="#implementacionesT04P01" class="check-obligatorio">Paso 1</a></li>
+												  <li><a data-toggle="tab" href="#implementacionesT04P02" class="check-obligatorio">Paso 2</a></li>
+												  <li><a data-toggle="tab" href="#implementacionesT04P03" class="check-obligatorio">Paso 3</a></li>
+												  <li><a data-toggle="tab" href="#implementacionesT04P04" class="check-obligatorio">Paso 4</a></li>
+												  <li><a data-toggle="tab" href="#implementacionesT04P05" class="check-obligatorio">Paso 5</a></li>
+												  <li><a data-toggle="tab" href="#implementacionesT04P06" class="check-obligatorio">Paso 6</a></li>
+												  <li><a data-toggle="tab" href="#implementacionesT04P07" class="check-obligatorio">Paso 7</a></li>
+												  <li><a data-toggle="tab" href="#implementacionesT04P08" class="check-obligatorio">Paso 8</a></li>
+												  <li><a data-toggle="tab" href="#implementacionesT04P09" class="check-obligatorio">Paso 9</a></li>
+												</ul>
+
+												<div class="tab-content">
+												  <div id="implementacionesT04P01" class="tab-pane fade in active">
+												    <h3>Paso 1</h3>
+												    <p>Desde el menú <span class="spanBold">Implementaciones > Fuente de datos</span> vamos a hacer clic en el botón “Nueva Fuente de Datos”.</p>
+												    <img class="imgTutorial" src="img/implementacionesT04P01Img01.png">
+												  </div>
+												  <div id="implementacionesT04P02" class="tab-pane fade">
+												    <h3>Paso 2</h3>
+												    <p>Se abrirá una nueva ventana donde deberá ingresar un nombre para su fuente de datos (DS).  </p>
+												    <p>&#128064; Este es un campo obligatorio y como puede tener tantas fuentes de datos como desee, el nombre debe ser único.</p>
+												    <img class="imgTutorial" src="img/implementacionesT04P02Img01.png">
+												  </div>
+												  <div id="implementacionesT04P03" class="tab-pane fade">
+												    <h3>Paso 3</h3>
+												    <p>A continuación vamos a poder elegir el modelo de negocio (BM) para su DS. Esto permitirá una mejor optimización de anuncios, estableciendo los criterios de segmentación y obteniendo mejores resultados para la campaña.</p>
+												    <img class="imgTutorial" src="img/implementacionesT04P03Img01.png">
+												    <p>&#128064; <span class="spanBold">Atención:</span> Si tiene alguna duda sobre qué BM elegir, seleccione Genérico o comuníquese con el Soporte de GroovinAds para obtener orientación.</p>
+												  </div>
+												  <div id="implementacionesT04P04" class="tab-pane fade">
+												    <h3>Paso 4</h3>
+												    <p>En este caso vamos a poder seleccionar el origen de nuestra nueva fuente. En esta oportunidad, debemos seleccionar la primer opción: <span class="spanBold">“Sube un archivo XML o CSV”</span>. </p>
+												    <img class="imgTutorial" src="img/implementacionesT04P04Img01.png">
+												  </div>
+												  <div id="implementacionesT04P05" class="tab-pane fade">
+												    <h3>Paso 5</h3>
+												    <p>Al seleccionar esta opción se habilitará un botón desde el que vamos a poder elegir el archivo que queremos subir. </p>
+												    <img class="imgTutorial" src="img/implementacionesT04P05Img01.png">
+												  </div>
+												  <div id="implementacionesT04P06" class="tab-pane fade">
+												    <h3>Paso 6</h3>
+												    <p>Una vez que haya seleccionado el archivo y el sistema los haya cargado, podrá hacer coincidir los campos de las ofertas con los campos estándar de GroovinAds. (Consulte las Especificaciones de DS para ver la lista de campos obligatorios y opcionales para el BM seleccionado).</p>
+												    <img class="imgTutorial" src="img/implementacionesT04P06Img01.png">
+												    <p>&#128204; Tutorial relacionado: <span class="spanBold"><a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#implementacionesCollapseT11" aria-expanded="false" aria-controls="implementacionesCollapseT11">¿Cómo hacer coincidir los valores de mi Fuente de datos con los campos estándar de Groovin?</a></span></p>
+												  </div>
+												  <div id="implementacionesT04P07" class="tab-pane fade">
+												    <h3>Paso 7</h3>
+												    <p>Continuando con la configuración vamos a poder tener la opción de forzar los datos de nuestra DS. ¿Qué quiere decir esto? En el caso de que por ejemplo tenga el campo “Discount” configurado con el porcentaje de descuento de mi producto pero no quiero que se muestre él tal como viene de la fuente puedo configurarlo desde acá. </p>
+												    <p>Tener en cuenta que si por ejemplo coloco la palabra “Oportunidad” en este espacio este dato va a aparecer en TODAS las creatividades que estén utilizando esta DS.  </p>
+												    <p>Al mismo tiempo, si este campo ya tenía configurado un ancho, tipografía, tamaño, etc, este no se va a adaptar automáticamente por lo cual, si el espacio es menor al que necesita puede que la leyenda no se vea correctamente. </p>
+												    <img class="imgTutorial" src="img/implementacionesT04P07Img01.png">
+												  </div>
+												  <div id="implementacionesT04P08" class="tab-pane fade">
+												    <h3>Paso 8</h3>
+												    <p>Ya finalizando la configuración de nuestra nueva Fuente de datos vamos a poder una tasa de actualización para asegurarse de que las ofertas que se muestran en el banner estén siempre frescas y actualizadas. Esta tasa de actualización se puede configurar cada 30 minutos, hasta una vez al mes.</p>
+												    <img class="imgTutorial" src="img/implementacionesT04P08Img01.png">
+												  </div>
+												  <div id="implementacionesT04P09" class="tab-pane fade">
+												    <h3>Paso 9</h3>
+												    <p>Una vez configurados estos puntos, ya está todo listo para poder utilizar nuestro nuevo feed en la cuenta. </p>
+												    <p>&#128064; <span class="spanBold">Atención:</span> Recuerde que este tipo de fuente no se actualiza automáticamente por lo cual es necesario que cada vez que necesite hacer ajuste suba un nuevo archivo subiendo los datos actualizados. </p>
+												    <p>&#128204; Tutorial relacionado: <span class="spanBold"><a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#implementacionesCollapseT09" aria-expanded="false" aria-controls="implementacionesCollapseT09">¿Cómo actualizar mi feed desde un archivo XML o CSV?</a></span></p>
+												  </div>
+												</div>
+									      </div>
+									    </div>
+								  	</div>
+								  	<div class="panel panel-default" title="¿Cómo crear un DataSource desde una URL?" id="ImpT05">
+									    <div class="panel-heading" role="tab" id="implementacionesT05">
+									      <h4 class="panel-title">
+									        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#implementacionesCollapseT05" aria-expanded="true" aria-controls="implementacionesCollapseT05">
+									          ¿Cómo crear un DataSource desde una URL?
+									        </a>
+									      </h4>
+									    </div>
+									    <div id="implementacionesCollapseT05" class="panel-collapse collapse" role="tabpanel" aria-labelledby="implementacionesT05">
+									      <div class="panel-body">
+												<ul class="nav nav-tabs">
+						                          <li class="active"><a data-toggle="tab" href="#implementacionesT05P01" class="check-obligatorio">Paso 1</a></li>
+						                          <li><a data-toggle="tab" href="#implementacionesT05P02" class="check-obligatorio">Paso 2</a></li>
+						                          <li><a data-toggle="tab" href="#implementacionesT05P03" class="check-obligatorio">Paso 3</a></li>
+						                          <li><a data-toggle="tab" href="#implementacionesT05P04" class="check-obligatorio">Paso 4</a></li>
+						                          <li><a data-toggle="tab" href="#implementacionesT05P05" class="check-obligatorio">Paso 5</a></li>
+						                          <li><a data-toggle="tab" href="#implementacionesT05P06" class="check-obligatorio">Paso 6</a></li>
+						                          <li><a data-toggle="tab" href="#implementacionesT05P07" class="check-obligatorio">Paso 7</a></li>
+						                          <li><a data-toggle="tab" href="#implementacionesT05P08" class="check-obligatorio">Paso 8</a></li>
+						                          <li><a data-toggle="tab" href="#implementacionesT05P09" class="check-obligatorio">Paso 9</a></li>
+						                        </ul>
+
+						                        <div class="tab-content">
+						                          <div id="implementacionesT05P01" class="tab-pane fade in active">
+						                            <h3>Paso 1</h3>
+						                            <p>Desde el menú <span class="spanBold">Implementaciones > Fuente de datos</span> vamos a hacer clic en el botón “Nueva Fuente de Datos”.</p>
+						                            <img class="imgTutorial" src="img/implementacionesT05P01Img01.png">
+						                          </div>
+						                          <div id="implementacionesT05P02" class="tab-pane fade">
+						                            <h3>Paso 2</h3>
+						                            <p>Se abrirá una nueva ventana donde deberá ingresar un nombre para su fuente de datos (DS).  </p>
+						                            <p>&#128064; Este es un campo obligatorio y como puede tener tantas fuentes de datos como desee, el nombre debe ser único.</p>
+						                            <img class="imgTutorial" src="img/implementacionesT05P02Img01.png">
+						                          </div>
+						                          <div id="implementacionesT05P03" class="tab-pane fade">
+						                            <h3>Paso 3</h3>
+						                            <p>En el siguiente paso vamos a poder elegir el modelo de negocio (BM) para su DS. Esto permitirá una mejor optimización de anuncios, estableciendo los criterios de segmentación y obteniendo mejores resultados para la campaña.</p>
+						                            <img class="imgTutorial" src="img/implementacionesT05P03Img01.png">
+						                            <p>&#128064; <span class="spanBold">Atención:</span> Si tiene alguna duda sobre qué BM elegir, seleccione Genérico o comuníquese con el Soporte de GroovinAds para obtener orientación.</p>
+						                          </div>
+						                          <div id="implementacionesT05P04" class="tab-pane fade">
+						                            <h3>Paso 4</h3>
+						                            <p>En este paso vamos a poder seleccionar el origen de nuestra nueva fuente. En este caso, debemos seleccionar la segunda opción: <span class="spanBold">“Subir desde URL”.</span></p>
+						                            <img class="imgTutorial" src="img/implementacionesT05P04Img01.png">
+						                          </div>
+						                          <div id="implementacionesT05P05" class="tab-pane fade">
+						                            <h3>Paso 5</h3>
+						                            <p>Al seleccionar esta opción se habilitará un nuevo campo donde podremos ingresar la URL.  </p>
+						                            <img class="imgTutorial" src="img/implementacionesT05P05Img01.png">
+						                          </div>
+						                          <div id="implementacionesT05P06" class="tab-pane fade">
+						                            <h3>Paso 6</h3>
+						                            <p>Una vez que haya ingresado la URL, podrá hacer coincidir los campos de las ofertas con los campos estándar de GroovinAds. (Consulte las Especificaciones de DS para ver la lista de campos obligatorios y opcionales para el BM seleccionado).</p>
+						                            <img class="imgTutorial" src="img/implementacionesT05P06Img01.png">
+						                            <p>&#128204; Tutorial relacionado: <span class="spanBold"><a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#implementacionesCollapseT11" aria-expanded="false" aria-controls="implementacionesCollapseT11">¿Cómo hacer coincidir los valores de mi Fuente de datos con los campos estándar de Groovin?</a></span></p>
+						                          </div>
+						                          <div id="implementacionesT05P07" class="tab-pane fade">
+						                            <h3>Paso 7</h3>
+						                            <p>Continuando con la configuración vamos a poder tener la opción de forzar los datos de nuestra DS. ¿Qué quiere decir esto? En el caso de que por ejemplo tenga el campo “Discount” configurado con el porcentaje de descuento de mi producto pero no quiero que se muestre él tal como viene de la fuente puedo configurarlo desde acá. </p>
+						                            <p>Tener en cuenta que si por ejemplo coloco la palabra “Oportunidad” en este espacio este dato va a aparecer en TODAS las creatividades que estén utilizando esta DS.  </p>
+						                            <p>Al mismo tiempo, si este campo ya tenía configurado un ancho, tipografía, tamaño, etc, este no se va a adaptar automáticamente por lo cual, si el espacio es menor al que necesita puede que la leyenda no se vea correctamente. </p>
+						                            <img class="imgTutorial" src="img/implementacionesT05P07Img01.png">
+						                          </div>
+						                          <div id="implementacionesT05P08" class="tab-pane fade">
+						                            <h3>Paso 8</h3>
+						                            <p>Ya finalizando la configuración de nuestra nueva Fuente de datos vamos a poder una tasa de actualización para asegurarse de que las ofertas que se muestran en el banner estén siempre frescas y actualizadas. Esta tasa de actualización se puede configurar cada 30 minutos, hasta una vez al mes.</p>
+						                            <img class="imgTutorial" src="img/implementacionesT05P08Img01.png">
+						                            <p>Verifique la frecuencia con la que se actualizarán las ofertas en la URL especificada para determinar la mejor frecuencia de actualización para su DS.</p>
+						                          </div>
+						                          <div id="implementacionesT05P09" class="tab-pane fade">
+						                            <h3>Paso 9</h3>
+						                            <p>Una vez configurados estos puntos, ya está todo listo para poder utilizar nuestro nuevo feed en la cuenta. </p>
+						                            
+						                           </div>
+						                        </div>
+                    
+									      </div>
+									    </div>
+								  	</div>
+								  	<div class="panel panel-default" title="¿Cómo crear un Feed Manual?" id="ImpT06">
+									    <div class="panel-heading" role="tab" id="implementacionesT06">
+									      <h4 class="panel-title">
+									        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#implementacionesCollapseT06" aria-expanded="true" aria-controls="implementacionesCollapseT06">
+									          ¿Cómo crear un Feed Manual?
+									        </a>
+									      </h4>
+									    </div>
+									    <div id="implementacionesCollapseT06" class="panel-collapse collapse" role="tabpanel" aria-labelledby="implementacionesT06">
+									      <div class="panel-body">
+												<ul class="nav nav-tabs">
+						                          <li class="active"><a data-toggle="tab" href="#implementacionesT06P01" class="check-obligatorio">Paso 1</a></li>
+						                          <li><a data-toggle="tab" href="#implementacionesT06P02" class="check-obligatorio">Paso 2</a></li>
+						                          <li><a data-toggle="tab" href="#implementacionesT06P03" class="check-obligatorio">Paso 3</a></li>
+						                          <li><a data-toggle="tab" href="#implementacionesT06P04" class="check-obligatorio">Paso 4</a></li>
+						                          <li><a data-toggle="tab" href="#implementacionesT06P05" class="check-obligatorio">Paso 5</a></li>
+						                          <li><a data-toggle="tab" href="#implementacionesT06P06" class="check-obligatorio">Paso 6</a></li>
+						                          <li><a data-toggle="tab" href="#implementacionesT06P07" class="check-obligatorio">Paso 7</a></li>
+						                          <li><a data-toggle="tab" href="#implementacionesT06P08" class="check-obligatorio">Paso 8</a></li>
+						                        </ul>
+
+						                        <div class="tab-content">
+						                          <div id="implementacionesT06P01" class="tab-pane fade in active">
+						                            <h3>Paso 1</h3>
+						                            <p>Desde el menú <span class="spanBold">Implementaciones > Fuente de datos</span> vamos a hacer clic en el botón “Nueva Fuente de Datos”.</p>
+						                            <img class="imgTutorial" src="img/implementacionesT06P01Img01.png">
+						                          </div>
+						                          <div id="implementacionesT06P02" class="tab-pane fade">
+						                            <h3>Paso 2</h3>
+						                            <p>Se abrirá una nueva ventana donde deberá ingresar un nombre para su fuente de datos (DS).  </p>
+						                            <p>&#128064; Este es un campo obligatorio y como puede tener tantas fuentes de datos como desee, el nombre debe ser único.</p>
+						                            <img class="imgTutorial" src="img/implementacionesT06P02Img01.png">
+						                          </div>
+						                          <div id="implementacionesT06P03" class="tab-pane fade">
+						                            <h3>Paso 3</h3>
+						                            <p>En el siguiente paso vamos a poder elegir el modelo de negocio (BM) para su DS. Esto permitirá una mejor optimización de anuncios, estableciendo los criterios de segmentación y obteniendo mejores resultados para la campaña.</p>
+						                            <img class="imgTutorial" src="img/implementacionesT06P03Img01.png">
+						                            <p>&#128064; <span class="spanBold">Atención:</span> Si tiene alguna duda sobre qué BM elegir, seleccione Genérico o comuníquese con el Soporte de GroovinAds para obtener orientación.</p>
+						                          </div>
+						                          <div id="implementacionesT06P04" class="tab-pane fade">
+						                            <h3>Paso 4</h3>
+						                            <p>En este paso vamos a poder seleccionar el origen de nuestra nueva fuente. En este caso, debemos seleccionar la tercera opción: <span class="spanBold">“Feed manual”.</span></p>
+						                            <img class="imgTutorial" src="img/implementacionesT06P04Img01.png">
+						                          </div>
+						                          <div id="implementacionesT06P05" class="tab-pane fade">
+						                            <h3>Paso 5</h3>
+						                            <p>Al avanzar con la configuración nos va a aparecer una nueva ventana con un formulario en el que debemos ingresar todos los datos de nuestro producto. </p>
+						                            <p>&#128064; <span class="spanBold">Atención:</span> Tenga en cuenta que los valores País (country), Título (title) y Enlace de Destino (target_link) son campos obligatorios. <br>
+						                            También recuerde que cuanto más completo este su fuente de datos, nuestro motor va a tener más información con la que trabajar y, a raíz de esto, se podrá obtener un mayor provecho de la optimización de nuestro servicio.</p>
+						                            <img class="imgTutorial" src="img/implementacionesT06P05Img01.png"> 
+						                          </div>
+						                          <div id="implementacionesT06P06" class="tab-pane fade">
+						                            <h3>Paso 6</h3>
+						                            <p>Una vez completada toda la información de nuestro primer producto hacemos clic en el botón <span class="spanBold">“Save row”</span>.</p>
+						                            <img class="imgTutorial" src="img/implementacionesT06P06Img01.png">
+						                          </div>
+						                          <div id="implementacionesT06P07" class="tab-pane fade">
+						                            <h3>Paso 7</h3>
+						                            <p>De esta manera, cargamos nuestro primer producto. Si deseamos subir otro, debemos hacer clic en el botón <span class="spanBold">“Create new row”</span> y completar el formulario con la información del nuevo producto.  </p>
+						                            <img class="imgTutorial" src="img/implementacionesT06P07Img01.png">
+						                          </div>
+						                          <div id="implementacionesT06P08" class="tab-pane fade">
+						                            <h3>Paso 8</h3>
+						                            <p>Una vez que hayamos cargado todos los productos que deseábamos, hacemos clic en el botón “Siguiente”. Con esto terminamos de configurar el nuevo feed. </p>
+						                            <img class="imgTutorial smallImg" src="img/implementacionesT06P08Img01.png">
+						                            <p>&#128064; <span class="spanBold">Atención:</span> Recuerde que este tipo de fuente no se actualiza automáticamente por lo cual es necesario que realice los ajustes manualmente cada vez que sea necesario. </p>
+						                            <p>&#128204;Tutorial relacionado: <span class="spanBold"><a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#implementacionesCollapseT10" aria-expanded="false" aria-controls="implementacionesCollapseT10">¿Cómo actualizar mi feed manual?</a></span></p>
+						                           </div>
+						                        </div>
+									      </div>
+									    </div>
+								  	</div>
+								  	<div class="panel panel-default" title="¿Cómo crear un Crawler?" id="ImpT07">
+									    <div class="panel-heading" role="tab" id="implementacionesT07">
+									      <h4 class="panel-title">
+									        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#implementacionesCollapseT07" aria-expanded="true" aria-controls="implementacionesCollapseT07">
+									          ¿Cómo crear un feed con el Crawler?
+									        </a>
+									      </h4>
+									    </div>
+									    <div id="implementacionesCollapseT07" class="panel-collapse collapse" role="tabpanel" aria-labelledby="implementacionesT07">
+									      <div class="panel-body">
+											<p>Esta opción está disponible cuando no se tiene disponible un archivo o un link con los productos que deseamos promocionar. En estos casos, una vez que ya se realizó la instalación del pixel de retargeting en el sitio web, se puede solicitar al equipo de Groovin el armado de un feed automático. </p>
+											<p>El crawler es generado directa y estrictamente por personal técnico de GroovinAds. </p>
+
+									      </div>
+									    </div>
+								  	</div>
+								  	<div class="panel panel-default" title="¿Qué es  un subset?" id="ImpT12">
+									    <div class="panel-heading" role="tab" id="implementacionesT12">
+									      <h4 class="panel-title">
+									        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#implementacionesCollapseT12" aria-expanded="true" aria-controls="implementacionesCollapseT12">
+									          ¿Qué es  un subset?
+									        </a>
+									      </h4>
+									    </div>
+									    <div id="implementacionesCollapseT12" class="panel-collapse collapse" role="tabpanel" aria-labelledby="implementacionesT12">
+									      <div class="panel-body">
+									      	<p>Un Subset es una herramienta del panel que nos permite crear una nueva base de datos desde un feed ya existente.</p>
+											<p><span class="spanBold">¿Para qué podemos utilizar un subset?</span> Estos nos pueden ser muy útiles cuando solo queremos publicitar productos con una o más condiciones. Por ejemplo, si vendo electrodomésticos y tengo una promo solo en batidoras, voy a poder armar un subset donde solo estén las batidoras. </p>
+											<p>&#128204;Tutorial relacionado: <span class="spanBold"><a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#implementacionesCollapseT08" aria-expanded="false" aria-controls="implementacionesCollapseT08">¿Cómo crear un subset?</a></span></p>
+									      </div>
+									    </div>
+								  	</div>
+								  	<div class="panel panel-default" title="¿Cómo crear un subset?" id="ImpT08">
+									    <div class="panel-heading" role="tab" id="implementacionesT08">
+									      <h4 class="panel-title">
+									        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#implementacionesCollapseT08" aria-expanded="true" aria-controls="implementacionesCollapseT08">
+									          ¿Cómo crear un subset?
+									        </a>
+									      </h4>
+									    </div>
+									    <div id="implementacionesCollapseT08" class="panel-collapse collapse" role="tabpanel" aria-labelledby="implementacionesT08">
+									      <div class="panel-body">
+											<ul class="nav nav-tabs">
+					                          <li class="active"><a data-toggle="tab" href="#implementacionesT08P01" class="check-obligatorio">Paso 1</a></li>
+					                          <li><a data-toggle="tab" href="#implementacionesT08P02" class="check-obligatorio">Paso 2</a></li>
+					                          <li><a data-toggle="tab" href="#implementacionesT08P03" class="check-obligatorio">Paso 3</a></li>
+					                          <li><a data-toggle="tab" href="#implementacionesT08P04" class="check-obligatorio">Paso 4</a></li>
+					                          <li><a data-toggle="tab" href="#implementacionesT08P05" class="check-obligatorio">Paso 5</a></li>
+					                          <li><a data-toggle="tab" href="#implementacionesT08P06" class="check-obligatorio">Paso 6</a></li>
+					                          <li><a data-toggle="tab" href="#implementacionesT08P07" class="check-obligatorio">Paso 7</a></li>
+					                          <li><a data-toggle="tab" href="#implementacionesT08P08" class="check-obligatorio">Paso 8</a></li>
+					                          <li><a data-toggle="tab" href="#implementacionesT08P09" class="check-obligatorio">Paso 9</a></li>
+					                          <li><a data-toggle="tab" href="#implementacionesT08P10" class="check-obligatorio">Paso 10</a></li>
+					                          <li><a data-toggle="tab" href="#implementacionesT08P11" class="check-obligatorio">Paso 11</a></li>
+					                          <li><a data-toggle="tab" href="#implementacionesT08P12" class="check-obligatorio">Paso 12</a></li>
+					                          <li><a data-toggle="tab" href="#implementacionesT08P13" class="check-obligatorio">Paso 13</a></li>
+					                        </ul>
+
+					                        <div class="tab-content">
+					                          <div id="implementacionesT08P01" class="tab-pane fade in active">
+					                            <h3>Paso 1</h3>
+					                            <p>&#128064; <span class="spanBold">Atención:</span> Un subset es un subconjunto de una fuente de datos ya existente. Por lo cual para poder crear uno es necesario tener un feed ya cargado en nuestra cuenta. </p>
+					                            <p>Para crear el subset vamos a seguir los siguientes pasos: </p>
+					                            <p>Desde el menú <span class="spanBold">Implementaciones > Fuente de datos</span> vamos a hacer clic en el botón “Nueva Fuente de Datos”.</p>
+					                            <img class="imgTutorial" src="img/implementacionesT08P01Img01.png">
+					                          </div>
+					                          <div id="implementacionesT08P02" class="tab-pane fade">
+					                            <h3>Paso 2</h3>
+					                            <p>Se abrirá una nueva ventana donde deberá ingresar un nombre para su fuente de datos (DS).  </p>
+					                            <p>&#128064; Este es un campo obligatorio y como puede tener tantas fuentes de datos como desee, el nombre debe ser único.</p>
+					                            <img class="imgTutorial" src="img/implementacionesT08P02Img01.png">
+					                          </div>
+					                          <div id="implementacionesT08P03" class="tab-pane fade">
+					                            <h3>Paso 3</h3>
+					                            <p>En el siguiente paso vamos a poder elegir el modelo de negocio (BM) para su DS. Esto permitirá una mejor optimización de anuncios, estableciendo los criterios de segmentación y obteniendo mejores resultados para la campaña.</p>
+					                            <img class="imgTutorial" src="img/implementacionesT08P03Img01.png">
+					                            <p>&#128064; <span class="spanBold">Atención:</span> Si tiene alguna duda sobre qué BM elegir, seleccione Genérico o comuníquese con el Soporte de GroovinAds para obtener orientación.</p>
+					                          </div>
+					                          <div id="implementacionesT08P04" class="tab-pane fade">
+					                            <h3>Paso 4</h3>
+					                            <p>En este paso vamos a poder seleccionar el origen de nuestra nueva fuente. En este caso, debemos seleccionar la quinta opción: <span class="spanBold">“Subconjunto de la Fuente de Datos”.</span></p>
+					                            <img class="imgTutorial" src="img/implementacionesT08P04Img01.png">
+					                          </div>
+					                          <div id="implementacionesT08P05" class="tab-pane fade">
+					                            <h3>Paso 5</h3>
+					                            <p>Al avanzar con la configuración nos va a aparecer una nueva ventana donde vamos a poder seleccionar la Fuente desde la que queremos armar el nuevo feed y las condiciones que deben cumplir nuestros productos para estar en el. </p>
+					                            <img class="imgTutorial" src="img/implementacionesT08P05Img01.png">
+					                          </div>
+					                          <div id="implementacionesT08P06" class="tab-pane fade">
+					                            <h3>Paso 6</h3>
+					                            <p>En el desplegable de <span class="spanBold">Data Source Origin</span> vamos a seleccionar la fuente desde la que vamos a armar el subset. </p>
+					                            <img class="imgTutorial" src="img/implementacionesT08P06Img01.png">
+					                          </div>
+					                          <div id="implementacionesT08P07" class="tab-pane fade">
+					                            <h3>Paso 7</h3>
+					                            <p>Luego en <span class="spanBold">Condition</span> vamos a definir si un producto debe cumplir con todas las condiciones que creemos para incluirlo en este nuevo feed (Match ALL of the rules defined below) o si con cumplir alguna de ellas ya esta (Match ANY of the rules defined below).  </p>
+					                            <img class="imgTutorial" src="img/implementacionesT08P07Img01.png">
+					                          </div>
+					                          <div id="implementacionesT08P08" class="tab-pane fade">
+					                            <h3>Paso 8</h3>
+					                            <p>Una vez especificado esto, podemos avanzar con la configuración de las condiciones. Para esto vamos a ir agregando de a una, creándolas desde el botón “Create new row”.</p>
+					                            <img class="imgTutorial" src="img/implementacionesT08P08Img01.png">
+					                            <p>Al hacer clic en el botón nos van a aparecer dos campos para completar: </p>
+					                            <ul>
+					                              <li>
+					                                <span class="spanBold">Model Option:</span> En este espacio vamos a poder seleccionar el campo que queremos comparar. Por ejemplo, Título, Precio, País, etc. <br>
+					                                &#128064; Tener en cuenta que este campo tiene que existir en el feed original. 
+					                              </li>
+					                              <li><span class="spanBold">Operation:</span> En este caso vamos a seleccionar que es lo que estamos buscando. Un valor igual (MATCHES), distinto (DOES NOT MATCH), mayor (GREATER than), menor (LESS than), que conténtenla algo (is ANY of) o que no contenga nada (is NONE of). </li>
+					                              <li><span class="spanBold">Value:</span> Vamos a poder cargar el valor que deseamos que cumpla.  </li>
+					                            </ul>
+					                            <img class="imgTutorial" src="img/implementacionesT08P08Img02.png">
+					                          </div>
+					                          <div id="implementacionesT08P09" class="tab-pane fade">
+					                            <h3>Paso 9</h3>
+					                            <p>Luego, y en el caso de necesitarlo, vamos a poder crear nuevas condiciones y duplicar o eliminar las condiciones que existentes cuando lo deseemos solo con un clic. </p>
+					                            <img class="imgTutorial" src="img/implementacionesT08P09Img01.png">
+					                          </div>
+					                          <div id="implementacionesT08P10" class="tab-pane fade">
+					                            <h3>Paso 10</h3>
+					                            <p>Una vez que hayamos cargado todas las condiciones que necesitemos debemos hacer clic en el botón <span class="spanBold">“Actualizar”.</span></p>
+					                            <img class="imgTutorial" src="img/implementacionesT08P10Img01.png">
+					                          </div>
+					                          <div id="implementacionesT08P11" class="tab-pane fade">
+					                            <h3>Paso 11</h3>
+					                            <p>Con esto se realiza la búsqueda, devolviéndonos los productos que cumplen con las condiciones establecidas.</p>
+					                            <img class="imgTutorial" src="img/implementacionesT08P11Img01.png">
+					                          </div>
+					                          <div id="implementacionesT08P12" class="tab-pane fade">
+					                            <h3>Paso 12</h3>
+					                            <p>Hacemos clic en el botón “Next” y continuando con la configuración vamos a poder tener la opción de forzar los datos de nuestra DS. ¿Qué quiere decir esto? En el caso de que por ejemplo tenga el campo “Discount” configurado con el porcentaje de descuento de mi producto pero no quiero que se muestre él tal como viene de la fuente puedo configurarlo desde acá. </p>
+					                            <p>Tener en cuenta que si por ejemplo coloco la palabra “Oportunidad” en este espacio este dato va a aparecer en TODAS las creatividades que estén utilizando esta DS.</p>
+					                            <p>Al mismo tiempo, si este campo ya tenía configurado un ancho, tipografía, tamaño, etc, este no se va a adaptar automáticamente por lo cual, si el espacio es menor al que necesita puede que la leyenda no se vea correctamente. </p>
+					                            <img class="imgTutorial" src="img/implementacionesT08P12Img01.png">
+					                          </div>
+					                          <div id="implementacionesT08P13" class="tab-pane fade">
+					                            <h3>Paso 13</h3>
+					                            <p>Por últimos guardamos el feed haciendo clic en <span class="spanBold">“Save”</span> y ya está todo listo para poder utilizar nueva base de datos. </p>
+					                            <p>&#128064; <span class="spanBold">Atención:</span> Recuerde que este tipo de fuente se actualiza según lo configurado en la fuente original. Por lo cual es necesario que la fuente de la que estamos tomando estos datos esté siempre actualizada. </p>
+					                          </div>
+					                        </div>
+									      </div>
+									    </div>
+								  	</div>
+								  	<div class="panel panel-default" title="¿Cómo actualizar mi feed manual?" id="ImpT10">
+									    <div class="panel-heading" role="tab" id="implementacionesT10">
+									      <h4 class="panel-title">
+									        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#implementacionesCollapseT10" aria-expanded="true" aria-controls="implementacionesCollapseT10">
+									          ¿Cómo actualizar mi feed manual?
+									        </a>
+									      </h4>
+									    </div>
+									    <div id="implementacionesCollapseT10" class="panel-collapse collapse" role="tabpanel" aria-labelledby="implementacionesT10">
+									      <div class="panel-body">
+												<ul class="nav nav-tabs">
+												  <li class="active"><a data-toggle="tab" href="#implementacionesT10P01" class="check-obligatorio">Paso 1</a></li>
+												  <li><a data-toggle="tab" href="#implementacionesT10P02" class="check-obligatorio">Paso 2</a></li>
+												  <li><a data-toggle="tab" href="#implementacionesT10P03" class="check-obligatorio">Paso 3</a></li>
+												  <li><a data-toggle="tab" href="#implementacionesT10P04" class="check-obligatorio">Paso 4</a></li>
+												  <li><a data-toggle="tab" href="#implementacionesT10P05" class="check-obligatorio">Paso 5</a></li>
+												</ul>
+
+												<div class="tab-content">
+												  <div id="implementacionesT10P01" class="tab-pane fade in active">
+												    <h3>Paso 1</h3>
+												    <p>Vamos a ingresar al menú <span class="spanBold">Implementaciones > Fuentes de Datos</span>. Desde allí vamos a buscar el feed que deseamos editar y hacemos clic en el icono de menú. En el menú desplegable vamos a seleccionar la opción <span class="spanBold">“Editar”</span>. </p>
+												    <img class="imgTutorial" src="img/implementacionesT10P01Img01.png">
+												  </div>
+												  <div id="implementacionesT10P02" class="tab-pane fade">
+												    <h3>Paso 2</h3>
+												    <p>Buscamos el producto a modificar y hacemos clic en el icono de menú. Se abrirá nuevamente un menú desplegable donde vamos a hacer clic en la opción <span class="spanBold">“Editar”</span>. </p>
+												    <img class="imgTutorial" src="img/implementacionesT10P02Img01.png">
+												  </div>
+												  <div id="implementacionesT10P03" class="tab-pane fade">
+												    <h3>Paso 3</h3>
+												    <p>Vamos a poder visualizar una nueva ventana con el formulario que completamos al crear nuestro producto. Desde aquí vamos a poder sumar, modificar o eliminar toda la información que necesitemos. </p>
+												    <img class="imgTutorial" src="img/implementacionesT10P03Img01.png">
+												  </div>
+												  <div id="implementacionesT10P04" class="tab-pane fade">
+												    <h3>Paso 4</h3>
+												    <p>Una vez actualizados los datos necesarios, vamos a hacer clic en el botón <span class="spanBold">“Save row”</span> para guardar los cambios. </p>
+												    <img class="imgTutorial" src="img/implementacionesT10P04Img01.png">
+												  </div>
+												  <div id="implementacionesT10P05" class="tab-pane fade">
+												    <h3>Paso 5</h3>
+												    <p>En el caso de querer editar algún otro producto se hace el cambio siguiendo los mismos pasos y al terminar hacemos clic en el botón “Siguiente”, dando por finalizada las modificaciones en el feed. </p>
+												    <img class="imgTutorial smallImg" src="img/implementacionesT10P05Img01.png">
+												  </div>
+												</div>
+									      </div>
+									    </div>
+								  	</div>
+								  	<div class="panel panel-default" title="¿Cómo editar mi Subset?" id="ImpT09">
+									    <div class="panel-heading" role="tab" id="implementacionesT09">
+									      <h4 class="panel-title">
+									        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#implementacionesCollapseT09" aria-expanded="true" aria-controls="implementacionesCollapseT09">
+									          ¿Cómo editar mi Subset?
+									        </a>
+									      </h4>
+									    </div>
+									    <div id="implementacionesCollapseT09" class="panel-collapse collapse" role="tabpanel" aria-labelledby="implementacionesT09">
+									      <div class="panel-body">
+											<ul class="nav nav-tabs">
+											  <li class="active"><a data-toggle="tab" href="#implementacionesT09P01" class="check-obligatorio">Paso 1</a></li>
+											  <li><a data-toggle="tab" href="#implementacionesT09P02" class="check-obligatorio">Paso 2</a></li>
+											  <li><a data-toggle="tab" href="#implementacionesT09P03" class="check-obligatorio">Paso 3</a></li>
+											  <li><a data-toggle="tab" href="#implementacionesT09P04" class="check-obligatorio">Paso 4</a></li>
+											  <li><a data-toggle="tab" href="#implementacionesT09P05" class="check-obligatorio">Paso 5</a></li>
+											</ul>
+
+											<div class="tab-content">
+											  <div id="implementacionesT09P01" class="tab-pane fade in active">
+											    <h3>Paso 1</h3>
+											    <p>Vamos a ingresar al menú Implementaciones > Fuentes de Datos. Desde allí vamos a buscar el feed que deseamos editar y hacemos clic en el icono de menú. En el menú desplegable vamos a seleccionar la opción <span class="spanBold">“Editar”</span>. </p>
+											    <img class="imgTutorial" src="img/implementacionesT09P01Img01.png">
+											  </div>
+											  <div id="implementacionesT09P02" class="tab-pane fade">
+											    <h3>Paso 2</h3>
+											    <p>Se va a abrir la misma ventana donde configuramos por primera vez las condiciones. Allí vamos a poder sumar, eliminar y editar las condiciones de búsqueda de los productos que deseamos incluir en el feed. </p>
+											    <img class="imgTutorial" src="img/implementacionesT09P02Img01.png">
+											  </div>
+											  <div id="implementacionesT09P03" class="tab-pane fade">
+											    <h3>Paso 3</h3>
+											    <p>Una vez que hayamos realizado todos los cambios que necesitabamos debemos hacer clic en el botón <span class="spanBold">“Actualizar”</span>. </p>
+											    <img class="imgTutorial" src="img/implementacionesT09P03Img01.png">
+											  </div>
+											  <div id="implementacionesT09P04" class="tab-pane fade">
+											    <h3>Paso 4</h3>
+											    <p>Con esto se realiza la búsqueda, devolviéndonos los productos que cumplen con las condiciones establecidas. </p>
+											    <img class="imgTutorial" src="img/implementacionesT09P04Img01.png">
+											  </div>
+											  <div id="implementacionesT09P05" class="tab-pane fade">
+											    <h3>Paso 5</h3>
+											    <p>Al avanzar de pantalla nos da la posibilidad de forzar algún dato al igual que cuando creamos la fuente.  </p>
+											    <img class="imgTutorial" src="img/implementacionesT09P05Img01.png">
+											    <p>Una vez que estemos listos para guardar el feed hacemos clic en <span class="spanBold">“Save”</span> y nuestra base de datos ya habrá quedado actualizada. </p>
+											  </div>
+											</div>
+									      </div>
+									    </div>
+								  	</div>
+								  	<div class="panel panel-default" title="¿Cómo modificar el nombre de mi base de datos?" id="ImpT13">
+									    <div class="panel-heading" role="tab" id="implementacionesT13">
+									      <h4 class="panel-title">
+									        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#implementacionesCollapseT13" aria-expanded="true" aria-controls="implementacionesCollapseT13">
+									          ¿Cómo modificar el nombre de mi base de datos?
+									        </a>
+									      </h4>
+									    </div>
+									    <div id="implementacionesCollapseT13" class="panel-collapse collapse" role="tabpanel" aria-labelledby="implementacionesT13">
+									      <div class="panel-body">
+									      	<ul class="nav nav-tabs">
+											  <li class="active"><a data-toggle="tab" href="#implementacionesT13P01" class="check-obligatorio">Paso 1</a></li>
+											  <li><a data-toggle="tab" href="#implementacionesT13P02" class="check-obligatorio">Paso 2</a></li>
+											  <li><a data-toggle="tab" href="#implementacionesT13P03" class="check-obligatorio">Paso 3</a></li>
+											</ul>
+
+											<div class="tab-content">
+											  <div id="implementacionesT13P01" class="tab-pane fade in active">
+											    <h3>Paso 1</h3>
+											    <p>Vamos a poder modificar el nombre de nuestro feed desde el menú <span class="spanBold">Implementaciones > Fuentes de Datos</span> haciendo clic en el botón de menú de la DataSource a renombrar. </p>
+											    <img class="imgTutorial" src="img/implementacionesT13P01Img01.png">
+											  </div>
+											  <div id="implementacionesT13P02" class="tab-pane fade">
+											    <h3>Paso 2</h3>
+											    <p>Seleccionamos la opcion <span class="spanBold">“Rename”</span>.</p>
+											    <img class="imgTutorial" src="img/implementacionesT13P02Img01.png">
+											  </div>
+											  <div id="implementacionesT13P03" class="tab-pane fade">
+											    <h3>Paso 3</h3>
+											    <p>Se va a abrir una nueva ventana donde podremos modificar el nombre del Feed. </p>
+											    <img class="imgTutorial" src="img/implementacionesT13P03Img01.png">
+											    <p>Una vez que hayamos renombrado el archivo, debemos hacer clic en el boton <span class="spanBold">"Guardar"</span> y listo!</p>
+											    <p>Nuestra Fuente de Datos ya tendrá su nuevo nombre. </p>
+											  </div>
+											</div> 
+									      </div>
+									    </div>
+								  	</div>
+								  	<div class="panel panel-default" title="¿Cómo duplicar mi feed?" id="ImpT14">
+									    <div class="panel-heading" role="tab" id="implementacionesT14">
+									      <h4 class="panel-title">
+									        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#implementacionesCollapseT14" aria-expanded="true" aria-controls="implementacionesCollapseT14">
+									          ¿Cómo duplicar mi feed?
+									        </a>
+									      </h4>
+									    </div>
+									    <div id="implementacionesCollapseT14" class="panel-collapse collapse" role="tabpanel" aria-labelledby="implementacionesT14">
+									      <div class="panel-body">
+									      	<ul class="nav nav-tabs">
+											  <li class="active"><a data-toggle="tab" href="#implementacionesT14P01" class="check-obligatorio">Paso 1</a></li>
+											  <li><a data-toggle="tab" href="#implementacionesT14P02" class="check-obligatorio">Paso 2</a></li>
+											  <li><a data-toggle="tab" href="#implementacionesT14P03" class="check-obligatorio">Paso 3</a></li>
+											</ul>
+
+											<div class="tab-content">
+											  <div id="implementacionesT14P01" class="tab-pane fade in active">
+											    <h3>Paso 1</h3>
+											    <p>Vamos a poder duplicar nuestro feed desde el menú <span class="spanBold">Implementaciones > Fuentes de Datos</span> haciendo clic en el botón de menú de la DataSource. </p>
+											    <img class="imgTutorial" src="img/implementacionesT14P01Img01.png">
+											  </div>
+											  <div id="implementacionesT14P02" class="tab-pane fade">
+											    <h3>Paso 2</h3>
+											    <p>Al desplegarse el menú seleccionamos la opción <span class="spanBold">“Duplicar”.</span> </p>
+											    <img class="imgTutorial" src="img/implementacionesT14P02Img01.png">
+											  </div>
+											  <div id="implementacionesT14P03" class="tab-pane fade">
+											    <h3>Paso 3</h3>
+											    <p>Al hacer esto, el panel generará un duplicado de su base de datos.</p>
+											    <p>A este nuevo feed va a poder editarle el nombre siguiendo los pasos de nuestro tutorial: </p>
+											    <p>&#128204; <span class="spanBold"><a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#implementacionesCollapseT13" aria-expanded="false" aria-controls="implementacionesCollapseT13">¿Cómo modificar el nombre de mi base de datos?</a></span></p>
+											  </div>
+											</div> 
+									      </div>
+									    </div>
+								  	</div>
+								  	<div class="panel panel-default" title="¿Cómo actualizar una base de datos?" id="ImpT15">
+									    <div class="panel-heading" role="tab" id="implementacionesT15">
+									      <h4 class="panel-title">
+									        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#implementacionesCollapseT15" aria-expanded="true" aria-controls="implementacionesCollapseT15">
+									          ¿Cómo actualizar la base de datos?
+									        </a>
+									      </h4>
+									    </div>
+									    <div id="implementacionesCollapseT15" class="panel-collapse collapse" role="tabpanel" aria-labelledby="implementacionesT15">
+									      <div class="panel-body">
+									      	<ul class="nav nav-tabs">
+											  <li class="active"><a data-toggle="tab" href="#implementacionesT15P01">Intro</a></li>
+											  <li><a data-toggle="tab" href="#implementacionesT15P02" class="check-obligatorio">Paso 1</a></li>
+											  <li><a data-toggle="tab" href="#implementacionesT15P03" class="check-obligatorio">Paso 2</a></li>
+											</ul>
+
+											<div class="tab-content">
+											  <div id="implementacionesT15P01" class="tab-pane fade in active">
+											    <h3>Intro</h3>
+											    <p>Desde la opción de <span class="spanBold">Actualizar</span> vamos a poder forzar la actualización de los datos de nuestro feed sin la necesidad de esperar al próximo horario programado de sincronización. </p>
+											    <p><span class="spanBold">¿Para qué nos puede servir esta opción?</span></p>
+											    <p>Esta opción está pensada para ocasiones en los cuales se modifica la fuente que alimenta el feed del panel y necesitamos que los cambios se reflejen inmediatamente. Por ejemplos, frente a la implementación de nuevos precios de descuentos al comienzo de un evento tal como el Hot Sale. </p>
+											  </div>
+											  <div id="implementacionesT15P02" class="tab-pane fade">
+											    <h3>Paso 1</h3>
+											    <p>Esto lo vamos a poder realizar desde el menú <span class="spanBold">Implementaciones > Fuentes de Datos</span> haciendo clic en el botón de menú de la DataSource.</p>
+											    <img class="imgTutorial" src="img/implementacionesT15P02Img01.png">
+											  </div>
+											  <div id="implementacionesT15P03" class="tab-pane fade">
+											    <h3>Paso 2</h3>
+											    <p>Al desplegarse el menú seleccionamos la opción <span class="spanBold">“Actualizar“</span>:</p>
+											    <img class="imgTutorial" src="img/implementacionesT15P03Img01.png">
+											    <p>Al hacer clic en este botón, el sistema se vinculará al medio por el cual se subió el feed (URL, Crawling o subset) y actualizará los datos del panel. </p>
+											  </div>
+											</div>  
+									      </div>
+									    </div>
+								  	</div>
+								  	<div class="panel panel-default" title="¿Cómo eliminar una base de datos?" id="ImpT16">
+									    <div class="panel-heading" role="tab" id="implementacionesT16">
+									      <h4 class="panel-title">
+									        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#implementacionesCollapseT16" aria-expanded="true" aria-controls="implementacionesCollapseT16">
+									          ¿Cómo eliminar una base de datos?
+									        </a>
+									      </h4>
+									    </div>
+									    <div id="implementacionesCollapseT16" class="panel-collapse collapse" role="tabpanel" aria-labelledby="implementacionesT16">
+									      <div class="panel-body">
+									      	<ul class="nav nav-tabs">
+											  <li class="active"><a data-toggle="tab" href="#implementacionesT16P01" class="check-obligatorio">Paso 1</a></li>
+											  <li><a data-toggle="tab" href="#implementacionesT16P02" class="check-obligatorio">Paso 2</a></li>
+											  <li><a data-toggle="tab" href="#implementacionesT16P03" class="check-obligatorio">Paso 3</a></li>
+											</ul>
+
+											<div class="tab-content">
+											  <div id="implementacionesT16P01" class="tab-pane fade in active">
+											    <h3>Paso 1</h3>
+											    <p>Vamos a poder eliminar nuestros feed desde el menú <span class="spanBold">Implementaciones > Fuentes de Datos</span>  haciendo clic en el botón de menú de la DataSource. </p>
+											    <img class="imgTutorial" src="img/implementacionesT16P01Img01.png">
+											  </div>
+											  <div id="implementacionesT16P02" class="tab-pane fade">
+											    <h3>Paso 2</h3>
+											    <p>&#128064; <span class="spanBold">Atención:</span> Tener en cuenta que una vez eliminada la base de datos no se puede recuperar. </p>
+											    <p>Al desplegarse el menú seleccionamos la opción <span class="spanBold">“Borrar”</span>.</p>
+											    <img class="imgTutorial" src="img/implementacionesT16P02Img01.png">
+											  </div>
+											  <div id="implementacionesT16P03" class="tab-pane fade">
+											    <h3>Paso 3</h3>
+											    <p>Se abrirá una nueva ventana donde deberemos confirmar o no la acción:</p>
+											    <img class="imgTutorial smallImg" src="img/implementacionesT16P03Img01.png">
+											    <p>Al hacer clic en OK, la Data Source será eliminada definitivamente de la cuenta. </p>
+											  </div>
+											</div>         
+									      </div>
+									    </div>
+								  	</div>
+								  	<div class="panel panel-default" title="¿Cómo hacer coincidir los valores de mi Fuente de datos con los campos estándar de Groovin?" id="ImpT11">
+									    <div class="panel-heading" role="tab" id="implementacionesT11">
+									      <h4 class="panel-title">
+									        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#implementacionesCollapseT11" aria-expanded="true" aria-controls="implementacionesCollapseT11">
+									          ¿Cómo hacer coincidir los valores de mi Fuente de datos con los campos estándar de Groovin?
+									        </a>
+									      </h4>
+									    </div>
+									    <div id="implementacionesCollapseT11" class="panel-collapse collapse" role="tabpanel" aria-labelledby="implementacionesT11">
+									      <div class="panel-body">
+											<ul class="nav nav-tabs">
+											  <li class="active"><a data-toggle="tab" href="#implementacionesT11P01">Intro</a></li>
+											  <li><a data-toggle="tab" href="#implementacionesT11P02" class="check-obligatorio">Paso 1</a></li>
+											  <li><a data-toggle="tab" href="#implementacionesT11P03" class="check-obligatorio">Paso 2</a></li>
+											  <li><a data-toggle="tab" href="#implementacionesT11P04" class="check-obligatorio">Paso 3</a></li>
+											</ul>
+
+											<div class="tab-content">
+											  <div id="implementacionesT11P01" class="tab-pane fade in active">
+											    <h3>Intro</h3>
+											    <p>Cuando cargamos una nueva base de datos por medio de una URL o desde un archivo XML o CSV debemos configurar las columnas de tal forma que macheen con los datos que el panel necesita. De lo contrario, puede que se muestre valores vacíos o incorrectos en las creatividades.
+											    </p>
+											    <p>Al cargar el origen del nuevo feed nos va a parecer la siguiente ventana. Donde vamos a poder ver en verde los campos que se machearon y en rojo los que no.  </p>
+											    <img class="imgTutorial" src="img/implementacionesT11P01Img01.png">
+											  </div>
+											  <div id="implementacionesT11P02" class="tab-pane fade">
+											    <h3>Paso 1</h3>
+											    <p>Lo que primero debemos corroborar es que los campos en verde se vincularon correctamente. </p>
+											    <p>Si bien el sistema funciona comparando el nombre de la columna de origen con la requerida de Groovin lo cual previene errores, podría suceder que si cargamos los links destino en la columna “URL” el sistema la vincule este dato a Brand Logo URL cuando en realidad corresponde target_link. Por situaciones como esta siempre recomendamos verificar los datos. </p>
+											    <img class="imgTutorial" src="img/implementacionesT11P02Img01.png">
+											  </div>
+											  <div id="implementacionesT11P03" class="tab-pane fade">
+											    <h3>Paso 2</h3>
+											    <p>En todos los casos contamos con las siguientes opciones:</p>
+											    <ul>
+											      <li>
+											        <span class="spanBold">Editar:</span> Nos permite modificar el campo con el cual se vinculó el campo en cuestión. <br>
+											        Al hacer click en esta opción, vamos a poder contar con un desplegable donde seleccionar el Groo valor correspondiente para esa columna. <br>
+											        El cambio se va a poder guardar haciendo clic en Guardad o en caso de no querer hacer cambios cliqueamos el Cancelar. 
+											      </li>
+											      <li><span class="spanBold">Unset:</span> Nos permite desvincular el campo al Groo valor asociado. </li>
+											      <img class="imgTutorial smallImg" src="img/implementacionesT11P03Img01.png">
+											      <img class="imgTutorial smallImg" src="img/implementacionesT11P03Img02.png">
+											    </ul> 
+											  </div>
+											  <div id="implementacionesT11P04" class="tab-pane fade in active">
+											    <h3>Paso 3</h3>
+											    <p>Una vez hayamos vinculado todos los campos que seamos y los requeridos por el sistema debemos verificar que el país este configurado correctamente. </p>
+											    <img class="imgTutorial" src="img/implementacionesT11P04Img01.png">
+											    <p>Si esta todo ok podemos avanzar al siguiente paso desde el botón <span class="spanBold">“Siguiente”</span>. </p>
+											  </div>
+											</div>	
+									      </div>
+									    </div>
+								  	</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<script>
+			$(document).ready(function(){
+			  $('[data-toggle="tooltip"]').tooltip();
+			});
+
+			var obligatorio = document.getElementsByClassName("check-obligatorio");
+
+			for (var i=0; i< obligatorio.length; i++){
+				const span = document.createElement("span");
+
+			    span.setAttribute("data-toggle","tooltip");
+			    span.setAttribute("data-placement","right");
+			    span.setAttribute("title", "Paso obligatorio");
+			    span.className = "spanBoldRed";
+			    span.textContent = " *";
+
+			    obligatorio[i].insertAdjacentElement("beforeend",span);
+			}
+		</script>
+	</body>
