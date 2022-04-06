@@ -118,15 +118,15 @@
 												    <h3>Menú</h3>
 												    <p>Desde menú de cada fuente vamos a poder: </p>
 												    <ul>
-												      <li>Cambiarle el nombre a la DS. <br>
+												      <li><span class="spanBold">Cambiarle el nombre a la DS. </span><br>
 												       &#128204; Tutorial relacionado: <span class="spanBold"><a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#implementacionesCollapseT13" aria-expanded="false" aria-controls="implementacionesCollapseT13">¿Cómo modificar el nombre de mi base de datos?</a></span></li>
-												      <li>Editar el feed.</li>
-												      <li>Descargar el feed seleccionado.</li>
-												      <li>Duplicar el feed. <br>
+												      <li><span class="spanBold">Editar el feed.</span></li>
+												      <li><span class="spanBold">Descargar el feed seleccionado.</span></li>
+												      <li><span class="spanBold">Duplicar el feed. </span><br>
 												      	&#128204; Tutorial relacionado: <span class="spanBold"><a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#implementacionesCollapseT14" aria-expanded="false" aria-controls="implementacionesCollapseT14">¿Cómo duplicar mi feed?</a></span></li>
-												      <li>Actualizar la base de datos. <br>
+												      <li><span class="spanBold">Actualizar la base de datos. </span><br>
 												      	&#128204; Tutorial relacionado: <span class="spanBold"><a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#implementacionesCollapseT15" aria-expanded="false" aria-controls="implementacionesCollapseT15">¿Cómo actualizar la base de datos?</a></span></li>
-												      <li>Eliminar la fuente seleccionada. <br>
+												      <li><span class="spanBold">Eliminar la fuente seleccionada. </span><br>
 												      	&#128204; Tutorial relacionado: <span class="spanBold"><a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#implementacionesCollapseT16" aria-expanded="false" aria-controls="implementacionesCollapseT16">¿Cómo eliminar una base de datos?</a></span></li>
 												    </ul>
 												    <img class="imgTutorial" src="img/implementacionesT01P03Img01.png">
@@ -226,11 +226,11 @@
 											    <p>Dentro de este menú al que accedemos dentro del menú Implementaciones - Fuente de datos, presionamos el botón Nueva Fuente de Datos y completamos un nombre para la nueva Fuente de Datos, también denominada comúnmente Feed. Luego seleccionamos el modelo de negocio de la campaña que estamos emprendiendo (Retail o venta por menor, Hoteles, Automotores, etc.) </p>
 											    <p>Hay varias opciones para usar de origen de una fuente de datos: </p>
 											    <ul>
-											      <li>Opción 1: Cargar un archivo XML o CSV </li>
-											      <li>Opción 2: Cargar desde una URL </li>
-											      <li>Opción 3: Alimentación manual </li>
-											      <li>Opción 4: Rastreador del sitio (crawling) </li>
-											      <li>Opción 5: Subset Data Source </li>
+											      <li>Opción 1: <span class="spanBold">Cargar un archivo XML o CSV</span> </li>
+											      <li>Opción 2: <span class="spanBold">Cargar desde una URL</span> </li>
+											      <li>Opción 3: <span class="spanBold">Alimentación manual</span> </li>
+											      <li>Opción 4: <span class="spanBold">Rastreador del sitio (crawling)</span> </li>
+											      <li>Opción 5: <span class="spanBold">Subset Data Source </span></li>
 											    </ul>
 											  </div>
 											  <div id="implementacionesT03P02" class="tab-pane fade">
@@ -258,7 +258,7 @@
 											    <h3>Opción 5: Subset Data Source</h3>
 											    <p>Un subset es un subconjunto de una fuente de datos ya existente. Debemos seleccionar el origen y luego el criterio para combinar las condiciones AND u OR. La condición AND significa que deben cumplirse todas los criterios del filtro, en cambio la condición OR muestra registros cuando se cumple al menos uno de los filtros configurados. Para configurar los filtros primero debe seleccionarse un campo (category_name, title o cualquier otro campo), luego el operador (is ANY of, is NONE of, MATCHES, GREATER than, etc.), y por último el valor. Se pueden agregar todas condiciones necesarias. </p>
 											    <p>&#128064; <span class="spanBold">Atención:</span> No es posible combinar condiciones AND y OR en un mismo subset.</p>
-											    <p>&#128064; <span class="spanBold">Importante:</span> Un mismo campo de Groovinads no puede quedar haciendo match con dos campos del feed de origen, la relación tiene que ser de uno a uno. Debe seleccionarse como campo product_sku aquel que contenga un id o código que permita identificar en forma unívoca a cada registro del feed. Los campos obligatorios son country, product_sku, target_link y title. </p>
+											    <p>&#128680; <span class="spanBold">Importante:</span> Un mismo campo de Groovinads no puede quedar haciendo match con dos campos del feed de origen, la relación tiene que ser de uno a uno. Debe seleccionarse como campo product_sku aquel que contenga un id o código que permita identificar en forma unívoca a cada registro del feed. Los campos obligatorios son country, product_sku, target_link y title. </p>
 											    <p>&#128204;Tutorial relacionado: <span class="spanBold"><a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#implementacionesCollapseT08" aria-expanded="false" aria-controls="implementacionesCollapseT08">¿Cómo crear un subset?</a></span></p>
 											  </div>
 											</div>
@@ -323,21 +323,22 @@
 												  </div>
 												  <div id="implementacionesT04P07" class="tab-pane fade">
 												    <h3>Paso 7</h3>
-												    <p>Continuando con la configuración vamos a poder tener la opción de forzar los datos de nuestra DS. ¿Qué quiere decir esto? En el caso de que por ejemplo tenga el campo “Discount” configurado con el porcentaje de descuento de mi producto pero no quiero que se muestre él tal como viene de la fuente puedo configurarlo desde acá. </p>
-												    <p>Tener en cuenta que si por ejemplo coloco la palabra “Oportunidad” en este espacio este dato va a aparecer en TODAS las creatividades que estén utilizando esta DS.  </p>
-												    <p>Al mismo tiempo, si este campo ya tenía configurado un ancho, tipografía, tamaño, etc, este no se va a adaptar automáticamente por lo cual, si el espacio es menor al que necesita puede que la leyenda no se vea correctamente. </p>
+												    <p>Continuando con la configuración vamos a poder tener la opción de forzar los datos de nuestra DS.</p>
+												    <p><span class="spanBold">¿Qué quiere decir esto?</span> En el caso de que por ejemplo tenga el campo “Discount” configurado con el porcentaje de descuento de mi producto, pero no quiero que se muestre él tal como viene de la fuente, puedo configurarlo desde acá.  </p>
+												    <p>Tener en cuenta que si por ejemplo coloco la palabra “Oportunidad” en este espacio, este dato va a aparecer en TODAS las creatividades que estén utilizando esta DS.</p>
+												    <p>Al mismo tiempo, si este campo ya tenía configurado un ancho, tipografía, tamaño, etc, este no se va a adaptar automáticamente, por lo cual, si el espacio es menor al que necesita, puede que la leyenda no se vea correctamente. </p>
 												    <img class="imgTutorial" src="img/implementacionesT04P07Img01.png">
 												  </div>
 												  <div id="implementacionesT04P08" class="tab-pane fade">
 												    <h3>Paso 8</h3>
-												    <p>Ya finalizando la configuración de nuestra nueva Fuente de datos vamos a poder una tasa de actualización para asegurarse de que las ofertas que se muestran en el banner estén siempre frescas y actualizadas. Esta tasa de actualización se puede configurar cada 30 minutos, hasta una vez al mes.</p>
+												    <p>Ya finalizando la configuración de nuestra nueva Fuente de datos vamos a poder especificar una tasa de actualización para asegurarse de que las ofertas que se muestran en el banner estén siempre frescas y actualizadas. Esta tasa de actualización se puede configurar cada 30 minutos, hasta una vez al mes.</p>
 												    <img class="imgTutorial" src="img/implementacionesT04P08Img01.png">
 												  </div>
 												  <div id="implementacionesT04P09" class="tab-pane fade">
 												    <h3>Paso 9</h3>
 												    <p>Una vez configurados estos puntos, ya está todo listo para poder utilizar nuestro nuevo feed en la cuenta. </p>
 												    <p>&#128064; <span class="spanBold">Atención:</span> Recuerde que este tipo de fuente no se actualiza automáticamente por lo cual es necesario que cada vez que necesite hacer ajuste suba un nuevo archivo subiendo los datos actualizados. </p>
-												    <p>&#128204; Tutorial relacionado: <span class="spanBold"><a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#implementacionesCollapseT09" aria-expanded="false" aria-controls="implementacionesCollapseT09">¿Cómo actualizar mi feed desde un archivo XML o CSV?</a></span></p>
+												    <p>&#128204; Tutorial relacionado: <span class="spanBold"><a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#implementacionesCollapseT17" aria-expanded="false" aria-controls="implementacionesCollapseT17">¿Cómo actualizar mi feed desde un archivo XML o CSV?</a></span></p>
 												  </div>
 												</div>
 									      </div>
@@ -401,21 +402,22 @@
 						                          </div>
 						                          <div id="implementacionesT05P07" class="tab-pane fade">
 						                            <h3>Paso 7</h3>
-						                            <p>Continuando con la configuración vamos a poder tener la opción de forzar los datos de nuestra DS. ¿Qué quiere decir esto? En el caso de que por ejemplo tenga el campo “Discount” configurado con el porcentaje de descuento de mi producto pero no quiero que se muestre él tal como viene de la fuente puedo configurarlo desde acá. </p>
-						                            <p>Tener en cuenta que si por ejemplo coloco la palabra “Oportunidad” en este espacio este dato va a aparecer en TODAS las creatividades que estén utilizando esta DS.  </p>
-						                            <p>Al mismo tiempo, si este campo ya tenía configurado un ancho, tipografía, tamaño, etc, este no se va a adaptar automáticamente por lo cual, si el espacio es menor al que necesita puede que la leyenda no se vea correctamente. </p>
+						                            <p>Continuando con la configuración vamos a poder tener la opción de forzar los datos de nuestra DS.</p>
+												    <p><span class="spanBold">¿Qué quiere decir esto?</span> En el caso de que por ejemplo tenga el campo “Discount” configurado con el porcentaje de descuento de mi producto, pero no quiero que se muestre él tal como viene de la fuente, puedo configurarlo desde acá.  </p>
+												    <p>Tener en cuenta que si por ejemplo coloco la palabra “Oportunidad” en este espacio, este dato va a aparecer en TODAS las creatividades que estén utilizando esta DS.</p>
+												    <p>Al mismo tiempo, si este campo ya tenía configurado un ancho, tipografía, tamaño, etc, este no se va a adaptar automáticamente, por lo cual, si el espacio es menor al que necesita, puede que la leyenda no se vea correctamente. </p>
 						                            <img class="imgTutorial" src="img/implementacionesT05P07Img01.png">
 						                          </div>
 						                          <div id="implementacionesT05P08" class="tab-pane fade">
 						                            <h3>Paso 8</h3>
-						                            <p>Ya finalizando la configuración de nuestra nueva Fuente de datos vamos a poder una tasa de actualización para asegurarse de que las ofertas que se muestran en el banner estén siempre frescas y actualizadas. Esta tasa de actualización se puede configurar cada 30 minutos, hasta una vez al mes.</p>
+						                            <p>Ya finalizando la configuración de nuestra nueva Fuente de datos vamos a poder especificar una tasa de actualización para asegurarse de que las ofertas que se muestran en el banner estén siempre frescas y actualizadas. Esta tasa de actualización se puede configurar cada 30 minutos, hasta una vez al mes.</p>
 						                            <img class="imgTutorial" src="img/implementacionesT05P08Img01.png">
 						                            <p>Verifique la frecuencia con la que se actualizarán las ofertas en la URL especificada para determinar la mejor frecuencia de actualización para su DS.</p>
 						                          </div>
 						                          <div id="implementacionesT05P09" class="tab-pane fade">
 						                            <h3>Paso 9</h3>
 						                            <p>Una vez configurados estos puntos, ya está todo listo para poder utilizar nuestro nuevo feed en la cuenta. </p>
-						                            
+						                            <p>&#128204;Tutorial relacionado: <span class="spanBold"><a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#implementacionesCollapseT15" aria-expanded="false" aria-controls="implementacionesCollapseT15">¿Cómo actualizar una base de datos?</a></span></p>
 						                           </div>
 						                        </div>
                     
@@ -638,54 +640,6 @@
 									      </div>
 									    </div>
 								  	</div>
-								  	<div class="panel panel-default" title="¿Cómo actualizar mi feed manual?" id="ImpT10">
-									    <div class="panel-heading" role="tab" id="implementacionesT10">
-									      <h4 class="panel-title">
-									        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#implementacionesCollapseT10" aria-expanded="true" aria-controls="implementacionesCollapseT10">
-									          ¿Cómo actualizar mi feed manual?
-									        </a>
-									      </h4>
-									    </div>
-									    <div id="implementacionesCollapseT10" class="panel-collapse collapse" role="tabpanel" aria-labelledby="implementacionesT10">
-									      <div class="panel-body">
-												<ul class="nav nav-tabs">
-												  <li class="active"><a data-toggle="tab" href="#implementacionesT10P01" class="check-obligatorio">Paso 1</a></li>
-												  <li><a data-toggle="tab" href="#implementacionesT10P02" class="check-obligatorio">Paso 2</a></li>
-												  <li><a data-toggle="tab" href="#implementacionesT10P03" class="check-obligatorio">Paso 3</a></li>
-												  <li><a data-toggle="tab" href="#implementacionesT10P04" class="check-obligatorio">Paso 4</a></li>
-												  <li><a data-toggle="tab" href="#implementacionesT10P05" class="check-obligatorio">Paso 5</a></li>
-												</ul>
-
-												<div class="tab-content">
-												  <div id="implementacionesT10P01" class="tab-pane fade in active">
-												    <h3>Paso 1</h3>
-												    <p>Vamos a ingresar al menú <span class="spanBold">Implementaciones > Fuentes de Datos</span>. Desde allí vamos a buscar el feed que deseamos editar y hacemos clic en el icono de menú. En el menú desplegable vamos a seleccionar la opción <span class="spanBold">“Editar”</span>. </p>
-												    <img class="imgTutorial" src="img/implementacionesT10P01Img01.png">
-												  </div>
-												  <div id="implementacionesT10P02" class="tab-pane fade">
-												    <h3>Paso 2</h3>
-												    <p>Buscamos el producto a modificar y hacemos clic en el icono de menú. Se abrirá nuevamente un menú desplegable donde vamos a hacer clic en la opción <span class="spanBold">“Editar”</span>. </p>
-												    <img class="imgTutorial" src="img/implementacionesT10P02Img01.png">
-												  </div>
-												  <div id="implementacionesT10P03" class="tab-pane fade">
-												    <h3>Paso 3</h3>
-												    <p>Vamos a poder visualizar una nueva ventana con el formulario que completamos al crear nuestro producto. Desde aquí vamos a poder sumar, modificar o eliminar toda la información que necesitemos. </p>
-												    <img class="imgTutorial" src="img/implementacionesT10P03Img01.png">
-												  </div>
-												  <div id="implementacionesT10P04" class="tab-pane fade">
-												    <h3>Paso 4</h3>
-												    <p>Una vez actualizados los datos necesarios, vamos a hacer clic en el botón <span class="spanBold">“Save row”</span> para guardar los cambios. </p>
-												    <img class="imgTutorial" src="img/implementacionesT10P04Img01.png">
-												  </div>
-												  <div id="implementacionesT10P05" class="tab-pane fade">
-												    <h3>Paso 5</h3>
-												    <p>En el caso de querer editar algún otro producto se hace el cambio siguiendo los mismos pasos y al terminar hacemos clic en el botón “Siguiente”, dando por finalizada las modificaciones en el feed. </p>
-												    <img class="imgTutorial smallImg" src="img/implementacionesT10P05Img01.png">
-												  </div>
-												</div>
-									      </div>
-									    </div>
-								  	</div>
 								  	<div class="panel panel-default" title="¿Cómo editar mi Subset?" id="ImpT09">
 									    <div class="panel-heading" role="tab" id="implementacionesT09">
 									      <h4 class="panel-title">
@@ -832,6 +786,13 @@
 											    <p>Desde la opción de <span class="spanBold">Actualizar</span> vamos a poder forzar la actualización de los datos de nuestro feed sin la necesidad de esperar al próximo horario programado de sincronización. </p>
 											    <p><span class="spanBold">¿Para qué nos puede servir esta opción?</span></p>
 											    <p>Esta opción está pensada para ocasiones en los cuales se modifica la fuente que alimenta el feed del panel y necesitamos que los cambios se reflejen inmediatamente. Por ejemplos, frente a la implementación de nuevos precios de descuentos al comienzo de un evento tal como el Hot Sale. </p>
+											    <p>&#128680; <span class="spanBold">Importante:</span> Tener en cuenta que este metodo de actualizacion se puede utilizar en Data Source que fueron creadas desde una URL, por medio del Crawling o como un subset. </p>
+											    <p><span class="spanBold">¿Cómo actualizamos los feed manuales o los creados mediante archivos XML o CSV?</span></p>
+											    <p>Para estos casos, los pasos a realizar difieren de los explicados a continuación. Por esto, les recomendamos continuar con los tutoriales correspondientes para estas situaciones particulares:</p>
+											    <ul>
+											    	<li>&#128204; <span class="spanBold"><a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#implementacionesCollapseT10" aria-expanded="false" aria-controls="implementacionesCollapseT10">¿Cómo actualizar mi feed manual?</a></span></li>
+											    	<li>&#128204; <span class="spanBold"><a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#implementacionesCollapseT17" aria-expanded="false" aria-controls="implementacionesCollapseT17">¿Cómo actualizar mi feed desde un archivo XML o CSV?</a></span></li>
+											    </ul>
 											  </div>
 											  <div id="implementacionesT15P02" class="tab-pane fade">
 											    <h3>Paso 1</h3>
@@ -848,6 +809,108 @@
 									      </div>
 									    </div>
 								  	</div>
+								  	<div class="panel panel-default" title="¿Cómo actualizar mi feed manual?" id="ImpT10">
+									    <div class="panel-heading" role="tab" id="implementacionesT10">
+									      <h4 class="panel-title">
+									        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#implementacionesCollapseT10" aria-expanded="true" aria-controls="implementacionesCollapseT10">
+									          ¿Cómo actualizar mi feed manual?
+									        </a>
+									      </h4>
+									    </div>
+									    <div id="implementacionesCollapseT10" class="panel-collapse collapse" role="tabpanel" aria-labelledby="implementacionesT10">
+									      <div class="panel-body">
+												<ul class="nav nav-tabs">
+												  <li class="active"><a data-toggle="tab" href="#implementacionesT10P01" class="check-obligatorio">Paso 1</a></li>
+												  <li><a data-toggle="tab" href="#implementacionesT10P02" class="check-obligatorio">Paso 2</a></li>
+												  <li><a data-toggle="tab" href="#implementacionesT10P03" class="check-obligatorio">Paso 3</a></li>
+												  <li><a data-toggle="tab" href="#implementacionesT10P04" class="check-obligatorio">Paso 4</a></li>
+												  <li><a data-toggle="tab" href="#implementacionesT10P05" class="check-obligatorio">Paso 5</a></li>
+												</ul>
+
+												<div class="tab-content">
+												  <div id="implementacionesT10P01" class="tab-pane fade in active">
+												    <h3>Paso 1</h3>
+												    <p>Vamos a ingresar al menú <span class="spanBold">Implementaciones > Fuentes de Datos</span>. Desde allí vamos a buscar el feed que deseamos editar y hacemos clic en el icono de menú. En el menú desplegable vamos a seleccionar la opción <span class="spanBold">“Editar”</span>. </p>
+												    <img class="imgTutorial" src="img/implementacionesT10P01Img01.png">
+												  </div>
+												  <div id="implementacionesT10P02" class="tab-pane fade">
+												    <h3>Paso 2</h3>
+												    <p>Buscamos el producto a modificar y hacemos clic en el icono de menú. Se abrirá nuevamente un menú desplegable donde vamos a hacer clic en la opción <span class="spanBold">“Editar”</span>. </p>
+												    <img class="imgTutorial" src="img/implementacionesT10P02Img01.png">
+												  </div>
+												  <div id="implementacionesT10P03" class="tab-pane fade">
+												    <h3>Paso 3</h3>
+												    <p>Vamos a poder visualizar una nueva ventana con el formulario que completamos al crear nuestro producto. Desde aquí vamos a poder sumar, modificar o eliminar toda la información que necesitemos. </p>
+												    <img class="imgTutorial" src="img/implementacionesT10P03Img01.png">
+												  </div>
+												  <div id="implementacionesT10P04" class="tab-pane fade">
+												    <h3>Paso 4</h3>
+												    <p>Una vez actualizados los datos necesarios, vamos a hacer clic en el botón <span class="spanBold">“Save row”</span> para guardar los cambios. </p>
+												    <img class="imgTutorial" src="img/implementacionesT10P04Img01.png">
+												  </div>
+												  <div id="implementacionesT10P05" class="tab-pane fade">
+												    <h3>Paso 5</h3>
+												    <p>En el caso de querer editar algún otro producto se hace el cambio siguiendo los mismos pasos y al terminar hacemos clic en el botón “Siguiente”, dando por finalizada las modificaciones en el feed. </p>
+												    <img class="imgTutorial smallImg" src="img/implementacionesT10P05Img01.png">
+												  </div>
+												</div>
+									      </div>
+									    </div>
+								  	</div>
+								  	<div class="panel panel-default" title="¿Cómo actualizar mi feed desde un archivo XML o CSV?" id="ImpT17">
+									    <div class="panel-heading" role="tab" id="implementacionesT17">
+									      <h4 class="panel-title">
+									        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#implementacionesCollapseT17" aria-expanded="true" aria-controls="implementacionesCollapseT17">
+									          ¿Cómo actualizar mi feed desde un archivo XML o CSV?
+									        </a>
+									      </h4>
+									    </div>
+									    <div id="implementacionesCollapseT17" class="panel-collapse collapse" role="tabpanel" aria-labelledby="implementacionesT17">
+									      <div class="panel-body">
+											<ul class="nav nav-tabs">
+											  <li class="active"><a data-toggle="tab" href="#implementacionesT17P01" class="check-obligatorio">Paso 1</a></li>
+											  <li><a data-toggle="tab" href="#implementacionesT17P02" class="check-obligatorio">Paso 2</a></li>
+											  <li><a data-toggle="tab" href="#implementacionesT17P03" class="check-obligatorio">Paso 3</a></li>
+											  <li><a data-toggle="tab" href="#implementacionesT17P04" class="check-obligatorio">Paso 4</a></li>
+											  <li><a data-toggle="tab" href="#implementacionesT17P05" class="check-obligatorio">Paso 5</a></li>
+											</ul>
+
+											<div class="tab-content">
+											  <div id="implementacionesT17P01" class="tab-pane fade in active">
+											    <h3>Paso 1</h3>
+											    <p>Los feeds que creamos por medio de un archivo XML o CSV se actualizan subiendo un nuevo documento con los todos los productos y modificaciones que queremos utilizar en nuestras creatividades. </p>
+											    <p>Para subir este nuevo archivo nos vamos a dirigir al panel de <span class="spanBold">Implementaciones > Fuentes de Datos</span> y vamos a hacer clic en el botón de menú del feed a actualizar. </p>
+											    <img class="imgTutorial" src="img/implementacionesT17P01Img01.png">
+											  </div>
+											  <div id="implementacionesT17P02" class="tab-pane fade">
+											    <h3>Paso 2</h3>
+											    <p>Se va a abrir una nueva ventana, donde debemos hacer clic en el botón <span class="spanBold">“Suba el nuevo archivo XML o CSV”</span>.</p>
+											    <img class="imgTutorial" src="img/implementacionesT17P02Img01.png">
+											  </div>
+											  <div id="implementacionesT17P03" class="tab-pane fade">
+											    <h3>Paso 3</h3>
+											    <p>Una vez cargado el nuevo documento, debemos verificar que cada campo macheo correctamente con los campos del sistema. </p>
+											    <p>&#128204; Tutorial relacionado: <span class="spanBold"><a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#implementacionesCollapseT11" aria-expanded="false" aria-controls="implementacionesCollapseT11">¿Cómo hacer coincidir los valores de mi Fuente de datos con los campos estándar de Groovin?</a></span></p>
+											  </div>
+											  <div id="implementacionesT17P04" class="tab-pane fade">
+											    <h3>Paso 4</h3>
+											    <p>Continuando con la configuración vamos a poder tener la opción de forzar los datos de nuestra DS. </p>
+												<p><span class="spanBold">¿Qué quiere decir esto?</span> En el caso de que por ejemplo tenga el campo “Discount” configurado con el porcentaje de descuento de mi producto, pero no quiero que se muestre él tal como viene de la fuente, puedo configurarlo desde acá. </p>
+											    <p>Tener en cuenta que si por ejemplo coloco la palabra “Oportunidad” en este espacio, este dato va a aparecer en TODAS las creatividades que estén utilizando esta DS. </p>
+											    <p>Al mismo tiempo, si este campo ya tenía configurado un ancho, tipografía, tamaño, etc, este no se va a adaptar automáticamente, por lo cual, si el espacio es menor al que necesita, puede que la leyenda no se vea correctamente. </p>
+											    <img class="imgTutorial" src="img/implementacionesT17P04Img01.png">
+											  </div>
+											  <div id="implementacionesT17P05" class="tab-pane fade">
+											    <h3>Paso 5</h3>
+											    <p>Ya finalizando con la actualización de nuestra Fuente de datos vamos a poder especificar una tasa de actualización para asegurarse de que las ofertas que se muestran en el banner estén siempre frescas y actualizadas. </p>
+											    <img class="imgTutorial" src="img/implementacionesT17P05Img01.png">
+											    <p>&#128680; <span class="spanBold">Importante:</span> Tenga en cuenta que este paso es un paso que no tiene validez en este tipo de feed que deben actualizarse manualmente. </p>
+											    <p>Una vez configurados estos puntos, ya está todo listo para poder utilizar su base de datos actualizada. </p>
+											  </div>
+											</div>
+									      </div>
+									    </div>
+									</div>
 								  	<div class="panel panel-default" title="¿Cómo eliminar una base de datos?" id="ImpT16">
 									    <div class="panel-heading" role="tab" id="implementacionesT16">
 									      <h4 class="panel-title">
